@@ -1,0 +1,27 @@
+.nav-bg {
+	background-color: black;
+}
+
+.nav-item a{ 
+color: white important;
+}
+h1 {
+	font-size: 2rem;
+	text-align: center;
+}
+
+
+table{
+  margin: 0px auto;
+  float: none;
+  width:50%;
+  }
+  
+  table, th, td {
+  white-space:nowrap;
+  border: 1px solid black;
+  padding: 15px;
+}
+tr:hover{
+	background-color: #40cdfb38;
+}

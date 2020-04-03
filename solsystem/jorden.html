@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--tittel -->
+    <title>Jorden</title>
+    <!--link til css -->
+    <link rel="stylesheet" href="css/index.css" />
+    <!--link til bootstrap, et rammeverk som lar meg style lettere -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <!--link til a-frame, rammeverk for 3d-modellering -->
+    <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
+    <!--lar meg bruke æ, ø, å -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+  </head>
+  <body>
+    <!--nav-bar -->
+    <nav class="navbar nav-bg">
+      <ul class="nav menu ">
+        <li class="nav-item-1">
+          <a
+            class="nav-link active"
+            href="http://klasserom.net/208/elev20821/it1/index1.html"
+            >Hovedside</a
+          >
+        </li>
+      </ul>
+      <ul class="nav menu  justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Solsystemet</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sola.html">Sola</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="merkur.html">Merkur</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="venus.html">Venus</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Jorden</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="mars.html">Mars</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="jupiter.html">Jupiter</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="saturn.html">Saturn</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="uranus.html">Uranus</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="neptun.html">Neptun</a>
+        </li>
+      </ul>
+    </nav>
+    <section class="helbais">
+      <div class="venstre">
+        <a-scene vr-mode-ui="enabled: false" embedded>
+          <!--   Kameraet lar deg trykke på enheter-->
+          <a-entity
+            id="camera"
+            position="0 0 13"
+            camera="userHeight: 1.6"
+            look-controls
+            wasd-controls
+            cursor="rayOrigin: mouse"
+          >
+          </a-entity>
+          <!--bakgrunn -->
+          <a-assets><img id="sky" src="bilder/himmel.jpg" /> </a-assets>
+
+          <a-sky id="background-img" src="#sky"></a-sky>
+
+          <!--jorden -->
+          <a-sphere position="0 1.25 -5" radius="3.5" src="bilder/jorden.jpeg">
+          </a-sphere>
+        </a-scene>
+      </div>
+      <!--tekst til høyre -->
+      <div class="høyre">
+        <h1>Jorden</h1>
+        <p>
+          Jorden er den tredje planeten fra sola, med en distanse til sola på
+          150 millioner kilometer. Av de fire innerste planetene, er jorda den
+          største og tetteste. Planeten er faktisk den tetteste av alle
+          planetene i solsystemet vårt. Radiusen til jorda er 6400 kilometer ved
+          ekvator. Jorden bruker litt over et år på sin bane rundt sola
+        </p>
+        <p>
+          Jordas består av en indre fast kjerne, en ytre flytende kjerne,
+          mantelen og jordskorpa. Den gjennomsnittlige overflatetemperaturen på
+          jorda er 14 grader celsius, og det blir ca 30 grader varmere for hver
+          kilometer mot kjernen fra overflaten. Jorda er også det eneste
+          himmellegemet man kan si for sikkert at har liv på seg.
+        </p>
+      </div>
+    </section>
+  </body>
+</html>

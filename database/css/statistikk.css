@@ -1,0 +1,21 @@
+.nav-bg {
+	background-color: black;
+}
+
+.nav-item a{ 
+color: white important;
+}
+h1 {
+	font-size: 2rem;
+	text-align: center;
+}
+.info-text {
+	font-size: 1.3rem;
+    padding-top: 5.5rem;
+    font-style: italic;
+    font-weight: lighter;
+    padding-left: 7rem !important;
+    padding-right: 7rem !important;
+    text-align: justify;
+	background-color: lightblue;
+}

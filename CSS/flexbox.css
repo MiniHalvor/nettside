@@ -1,0 +1,17 @@
+body {
+	margin:0;
+
+}
+
+.header {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 200px;
+	background-color: lightpink;
+}
+
+.nav { 
+	background-color:green;
+	
+}

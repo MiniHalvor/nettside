@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--tittel -->
+    <title>Uranus</title>
+    <!--link til css -->
+    <link rel="stylesheet" href="css/index.css" />
+    <!--bootstrap, rammmeverk for css -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <!--aframe, rammeverk for css -->
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <!--æ,ø,å -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+  </head>
+  <body>
+    <!--nav-bar -->
+    <nav class="navbar nav-bg">
+      <ul class="nav menu ">
+        <li class="nav-item-1">
+          <a
+            class="nav-link active"
+            href="http://klasserom.net/208/elev20821/it1/index1.html"
+            >Hovedside</a
+          >
+        </li>
+      </ul>
+      <ul class="nav menu  justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Solsystemet</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sola.html">Sola</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="merkur.html">Merkur</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="venus.html">Venus</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="jorden.html">Jorden</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="mars.html">Mars</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="jupiter.html">Jupiter</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="saturn.html">Saturn</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Uranus</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="neptun.html">Neptun</a>
+        </li>
+      </ul>
+    </nav>
+    <section class="helbais">
+      <div class="venstre">
+        <a-scene vr-mode-ui="enabled: false" embedded>
+          <!--   Kamera-->
+          <a-entity
+            id="camera"
+            position="0 0 13"
+            camera="userHeight: 1.6"
+            look-controls
+            wasd-controls
+            cursor="rayOrigin: mouse"
+          >
+          </a-entity>
+          <!--bakgrunn -->
+          <a-assets><img id="sky" src="bilder/himmel.jpg" /> </a-assets>
+
+          <a-sky id="background-img" src="#sky"></a-sky>
+          <!--uranus -->
+          <a-sphere position="0 1.25 -5" radius="5.4" src="bilder/uranus.jpg">
+          </a-sphere>
+        </a-scene>
+      </div>
+      <!--tekst til høyre -->
+      <div class="høyre">
+        <h1>Uranus</h1>
+        <p>
+          Uranus er den nest-ytterste planeten fra sola, og ligger mellom 2,5 og
+          3 milliarder kilometer unna sola. I likhet med jupiter, saturn og
+          neptun er uranus også en gassplanet. Planeten består hovedsakelig av
+          vann og metan. Uranus bruker omtrent 84 år på omløpet sitt rundt sola.
+        </p>
+        <p>
+          Uran har i likhet med saturn ringer og måner. Planeten har 27 kjente
+          måner og det er identifisert 13 ringer rundt Uranus. Ringene er litt
+          tykkere enn saturns ringer, bredden varierer mellom 1 og 100
+          kilometer. Planeten ble oppdaget i 1781.
+        </p>
+      </div>
+    </section>
+  </body>
+</html>

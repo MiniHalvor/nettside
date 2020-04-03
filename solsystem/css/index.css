@@ -1,0 +1,71 @@
+/*svart bakgrunn for nav-baren*/
+.nav-bg {
+	background-color: black;
+}
+
+
+
+/*hvit skrift i nav-baren*/
+.nav-item a{ 
+color: white important;
+}
+
+
+/*font size i nav-baren*/
+.nav-item-1 {
+	font-size: 30px;
+}
+
+/*full høyde*/
+html, body, section {
+  height: 100%;
+}
+
+/*styling for body*/
+body {
+  color: #fff;
+  font-family: sans-serif;
+  line-height: 150%;
+  
+}
+
+
+/*styling for overskriftene*/
+h1 {
+  font-size: 1.75rem;
+  margin: 0 0 0.75rem 0;
+  text-align:center;
+}
+
+/*styling for tekst*/
+p {
+font-size: 22px;
+
+
+
+}
+
+/* flexbox for å dele siden i to */
+.helbais {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  height: 87.6vh;
+}
+
+/*styling for venstre side(den siden med a-frame)*/
+.venstre {
+  
+  flex: 1;
+  z-index:100;
+}
+
+/*styling for høyre side(den siden med tekst)*/
+.høyre {
+  background-color: #;
+  flex: 1;
+   padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 30px;
+}

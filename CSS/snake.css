@@ -1,0 +1,47 @@
+h1 {
+	color:#A9A9A9;
+	
+	font-family:castellar;
+	
+	font-size: 64px;
+	
+}
+
+body {
+	background-image: url("wallpaper.jpg");
+
+
+  background-size: cover;
+}
+  
+ .sidenav {
+  
+  width: 140px; /* Set the width of the sidebar */
+  height:100%;
+  position: fixed;
+  z-index: 1; /* Stay on top */
+  top: -10px; /* Stay at the top */
+  left: 5%;
+  background-color: white; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+  opacity:0.3;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display: block;
+}
+.sidenav:hover {
+opacity:1;
+	
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: red;
+}

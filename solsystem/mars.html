@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--tittel -->
+    <title>Mars</title>
+    <!--link til css -->
+    <link rel="stylesheet" href="css/index.css" />
+    <!--link til bootstrap, et rammeverk for css som lar meg style lettere -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <!--link til a-frame -->
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <!--lar meg bruke æ,ø,å -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+  </head>
+  <body>
+    <!--nav-bar -->
+    <nav class="navbar nav-bg">
+      <ul class="nav menu ">
+        <li class="nav-item-1">
+          <a
+            class="nav-link active"
+            href="http://klasserom.net/208/elev20821/it1/index1.html"
+            >Hovedside</a
+          >
+        </li>
+      </ul>
+      <ul class="nav menu  justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Solsystemet</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sola.html">Sola</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="merkur.html">Merkur</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="venus.html">Venus</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="jorden.html">Jorden</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Mars</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="jupiter.html">Jupiter</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="saturn.html">Saturn</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="uranus.html">Uranus</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="neptun.html">Neptun</a>
+        </li>
+      </ul>
+    </nav>
+    <section class="helbais">
+      <div class="venstre">
+        <a-scene vr-mode-ui="enabled: false" embedded>
+          <!--   Kamera-->
+          <a-entity
+            id="camera"
+            position="0 0 13"
+            camera="userHeight: 1.6"
+            look-controls
+            wasd-controls
+            cursor="rayOrigin: mouse"
+          >
+          </a-entity>
+          <!--bakgrunn -->
+          <a-assets><img id="sky" src="bilder/himmel.jpg" /> </a-assets>
+
+          <a-sky id="background-img" src="#sky"></a-sky>
+          <!--mars -->
+          <a-sphere position="0 1.25 -5" radius="3" src="bilder/mars.jpeg">
+          </a-sphere>
+        </a-scene>
+      </div>
+      <!--tekst til høyre -->
+      <div class="høyre">
+        <h1>Mars</h1>
+        <p>
+          Mars er den ytterste av de fire innerste planetene og beveger seg i
+          bane rundt sola 228 millioner kilometer unna. Mars er den nest-minste
+          planeten i solsystemet vårt med en radius på 3400 kilometer. Planeten
+          bruker 687 dager på omløpet sitt rundt sola.
+        </p>
+        <p>
+          Det er flere ubemannede oppdrag som har blitt gjennomført på mars.
+          Mariner 4 var den første menneskeskapte gjenstanden som ble sendt til
+          mars. Mariner 4 ble sendt ut i 1964. Viking 1 ble sendt ut 7 år
+          senere, og ble det første romfartøyet til å lande på mars' overflate.
+        </p>
+      </div>
+    </section>
+  </body>
+</html>

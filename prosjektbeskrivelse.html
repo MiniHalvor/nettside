@@ -1,0 +1,74 @@
+<!doctype html>
+	<html>
+		<head>
+			<title>JUL</title>
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+			<link rel="stylesheet" href="css/prosjektbeskrivelse.css">
+			<meta charset= "UTF-8">
+			<link rel="shortcut icon" href="logoer/favicon.ico">
+		</head>
+		<body>
+		
+			<div class="sidenav">
+				<div class="boks">
+					<a href=index1.html>
+						<div class="tilpasser">
+						Tilbake til hovedsiden
+						</div>
+					</a>
+					
+					<a href=Jul.html>
+						<div class="tilpasser">
+						Julesiden
+						</div>
+					</a>
+					<a href=nedtelling.php>
+						<div class="tilpasser">
+						Nedtelling til julaften
+						</div>
+					</a>
+					<a href=juletest.php>
+						<div class="tilpasser">
+						Juletest
+						</div>
+					</a>
+					<a href=ønskeliste.php>
+						<div class="tilpasser">
+						Ønskeliste
+						</div>
+					</a>
+					<a href=julekalender.html>
+						<div class="tilpasser">
+						Julekalender
+						</div>
+					</a>
+					<a href=prosjektbeskrivelse.html>
+						<div class="tilpasser1">
+						Prosjekt- beskrivelse
+						</div>
+					</a>
+					
+					
+				</div>
+			</div>
+			<div class="header">
+			<h1>Prosjektbeskrivelse juleoppgave</h1>
+			</div>
+			
+			<div class="all">
+				 
+				 <h5>Julesiden</h5>
+				Siden som heter «Julesiden» er hovedsiden blant mine julesider. Der finner man ulike former for navigasjon for resten av nettstedet. De grønne sirklene er flexboxer, og det var det første jeg laget på julesiden min. De ulike sirklene kan man trykke på for å komme seg til andre deler av nettstedet. Det første jeg tenkte var å bruke de sirklene som hovedform for navigasjon, men det dukket fort opp et problem med at dette var rotete navigasjon når jeg gikk inn på andre deler av nettsiden. Derfor lagde jeg også en sidemeny som sier deg hvor på nettstedet du befinner deg, og hvor du kan komme deg videre til andre deler av nettstedet. Denne sidemenyen lagde jeg ved hjelp av flexbox. 
+				<h5>Nedtelling til Julaften</h5>
+				<p>På side nummer to har jeg en nedtelling til julaften og en kalender som viser desember måned. Php-koden for nedtellingen ser slik ut: </p>
+				<img src="bilder/nedtelling.png" width="500px" height="auto">
+				Variabelen $tid sier oss hvor mange sekunder det er fra dagens dato frem til julaften. Strtotime() er en funksjon som sier oss hvor mange sekunder det har gått fra 1. januar 1970 frem til den angitte datoen. Dette kalles Unix-tid. Funksjonen time()  sier oss hvor mange sekunder det har gått fra 1. januar 1970 frem til i dag. Dette gjør at vi ender opp med antall sekunder fra i dag frem til julaften. Funksjonen floor gjør at svaret vi får i det etterfølgende regnestykket blir rundet ned til nærmeste hele tall. Ettersom $tid er antall sekunder frem til julaften må vi dele dette på 86400 for å få antall dager. Dette er fordi det er 86400 sekunder per dag. Grunnen til at vi er nødt til å legge til 1 på slutten er at funksjonen floor runder ned istedenfor opp. Til slutt har jeg en enkel echo funksjon som gjør at resultatet av regnestykket blir postet på nettsiden. Tabellen er en helt vanlig tabell med border, ingenting spesielt der. 
+				<h5>Juletest</h5>
+				Juletesten min er et enkelt skjema med radioknapper, det er diverse spørsmål om jul. Du får et poeng per riktige svar. For at dette skulle bli riktig definerte jeg variabelen $totalkorrekt til å være 0, og brukte if setninger for å legge til poeng dersom svarte var riktig. I mottakssiden får du vite hva du svarte, hva som var riktig, og hvor mange riktige poeng du hadde ut av totalt mulige. Du får også opp et bilde alt ettersom hvor bra du gjorde det. 
+				<h5>Ønskeliste</h5>
+				Ønskelisten er et skjema med tekstinput.  På mottakssiden kommer det opp et svar som viser tydelig at ønsket har blitt mottatt og et bilde av julenissen.
+				<h5>Julekalender</h5>
+				Julekalenderen har jeg bygget opp med flexbox, og brukt active-taggen i css3 slik at når man holder inn musepekeren på en dato så vises det et inspirerende sitat. Dessverre kan man åpne luker før man har kommet seg til den respektive datoen som sånn det er nå. Denne funksjonen kommer så fort jeg har mulighet til å sette meg ned med det.<br><br><br><br>
+			</div>
+		</body>
+	</html>

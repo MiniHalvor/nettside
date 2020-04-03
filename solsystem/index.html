@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Solsystemet</title>
+    <!--link til css-dokumentet mitt for styling -->
+    <link rel="stylesheet" href="css/index.css" />
+    <!--Jeg bruker bootstrap, et rammeverk for css som hjelper meg med styling-->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <!--a-frame link-->
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <!--lar meg bruke æ,ø,å-->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- to scripter som lar meg trykke på enheter og bli sendt videre til en ny side-->
+    <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
+    <script>
+      AFRAME.registerComponent("navigate-on-click", {
+        schema: {
+          url: { default: "" }
+        },
+
+        init: function() {
+          var data = this.data;
+          var el = this.el;
+
+          el.addEventListener("click", function() {
+            window.location.href = data.url;
+          });
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <!--nav-bar-->
+    <nav class="navbar nav-bg">
+      <ul class="nav menu ">
+        <li class="nav-item-1">
+          <a
+            class="nav-link active"
+            href="http://klasserom.net/208/elev20821/it1/index1.html"
+            >Hovedside</a
+          >
+        </li>
+      </ul>
+      <ul class="nav menu  justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Solsystemet</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="sola.html">Sola</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="merkur.html">Merkur</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="venus.html">Venus</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="jorden.html">Jorden</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="mars.html">Mars</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="jupiter.html">Jupiter</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="saturn.html">Saturn</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="uranus.html">Uranus</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="neptun.html">Neptun</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 p-0">
+          <a-scene vr-mode-ui="enabled: false">
+            <!--kamera lar deg trykke på enheter-->
+            <a-entity
+              id="camera"
+              camera="userHeight: 1.6"
+              position="40 0 110"
+              look-controls
+              wasd-controls
+              cursor="rayOrigin: mouse"
+            ></a-entity>
+            <!--sola-->
+            <a-sphere
+              src="bilder/sola.jpeg"
+              position="-80 1.6 -20"
+              radius="50"
+              navigate-on-click="url:http://klasserom.net/208/elev20821/it1/solsystem/sola.html"
+            >
+            </a-sphere>
+            <!--merkur-->
+            <a-sphere
+              position="-10 1.6 -20"
+              radius="3"
+              src="bilder/merkur.jpeg"
+              navigate-on-click="url:http://klasserom.net/208/elev20821/it1/solsystem/merkur.html"
+            >
+            </a-sphere>
+            <!--venus-->
+            <a-sphere
+              position="10 1.6 -20"
+              radius="4"
+              navigate-on-click="url:http://klasserom.net/208/elev20821/it1/solsystem/venus.html"
+              src="bilder/venus.jpeg"
+            >
+            </a-sphere>
+            <!--jorda-->
+            <a-sphere
+              position="30 1.6 -20"
+              radius="3.5"
+              navigate-on-click="url:http://klasserom.net/208/elev20821/it1/solsystem/jorden.html"
+              src="bilder/jorden.jpeg"
+            >
+            </a-sphere>
+            <!--mars-->
+            <a-sphere
+              position="50 1.6 -20"
+              radius="3"
+              navigate-on-click="url:http://klasserom.net/208/elev20821/it1/solsystem/mars.html"
+              src="bilder/mars.jpeg"
+            >
+            </a-sphere>
+            <!--jupiter-->
+            <a-sphere
+              position="100 1.6 -20"
+              radius="14"
+              navigate-on-click="url:http://klasserom.net/208/elev20821/it1/solsystem/jupiter.html"
+              src="bilder/jupiter.jpg"
+            >
+            </a-sphere>
+            <!--saturn og ringen-->
+            <a-entity>
+              <a-sphere
+                position="150 1.6 -20"
+                radius="12"
+                navigate-on-click="url:http://klasserom.net/208/elev20821/it1/solsystem/saturn.html"
+                src="bilder/saturn.jpg"
+              >
+              </a-sphere>
+              <a-ring
+                src="bilder/ring.png"
+                rotation="100 0 10"
+                position="150 1.6 -20"
+                radius-inner="13"
+                radius-outer="15"
+                material="side:double"
+              ></a-ring>
+            </a-entity>
+            <!--uranus-->
+            <a-sphere
+              position="200 1.6 -20"
+              radius="10.8"
+              navigate-on-click="url:http://klasserom.net/208/elev20821/it1/solsystem/uranus.html"
+              src="bilder/uranus.jpg"
+            >
+            </a-sphere>
+            <!--neptun-->
+            <a-sphere
+              position="250 1.6 -20"
+              radius="10"
+              navigate-on-click="url:http://klasserom.net/208/elev20821/it1/solsystem/neptun.html"
+              src="bilder/neptun.jpg"
+            >
+            </a-sphere>
+            <!--himmelen-->
+            <a-assets><img id="sky" src="bilder/himmel.jpg" /> </a-assets>
+
+            <a-sky id="background-img" src="#sky"></a-sky>
+          </a-scene>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

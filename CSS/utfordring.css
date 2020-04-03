@@ -1,0 +1,98 @@
+
+h1 {
+	color:#A9A9A9;
+	
+	font-family:castellar;
+	
+	font-size: 64px;
+	
+}
+
+body {
+	background-image: url("wallpaper.jpg");
+
+
+  background-size: cover;
+}
+
+
+
+.sidenav {
+  
+  width: 140px; 
+  height:100%;
+  position: fixed;
+  z-index: 1; 
+  top: -10px; 
+  left: 5%;
+  background-color: white; 
+  overflow-x: hidden; 
+  padding-top: 20px;
+  opacity:0.3;
+}
+
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display: block;
+}
+.sidenav:hover {
+opacity:1;
+	
+}
+
+
+.sidenav a:hover {
+  color: red;
+}
+
+
+
+#content1 {
+	
+  line-height: 1.6;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+  
+
+}
+#content2 {
+	
+  line-height: 1.6;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+ 
+
+}
+
+#content3 {
+	
+  line-height: 1.6;
+  margin-left: auto;
+  margin-right: auto;
+  width: 600px;
+  
+
+}
+
+#footer {
+	opacity: 0.3;
+	background-color: #ffffff;
+	font-family: arial;
+letter-spacing: 1px;
+ color: black;
+margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  border: 2px solid black;
+  
+}
+
+#footer:hover {
+opacity: 1;
+}

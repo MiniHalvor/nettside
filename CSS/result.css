@@ -1,0 +1,96 @@
+body{
+  font: 14px Georgia, serif;
+  background-image: url("juleboks.jpg");
+  background-attachment:fixed;
+  background-size:100%;
+  background-color:red;
+  background-size: cover; /* or contain depending on what you want */
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin:auto;
+  padding:0;
+  width: 1200px;
+  height:600px;
+  color:white;
+  text-align:center;
+  
+}
+ 
+#pagewrap { 
+  width: 350px; 
+  margin-left: 350px;
+  margin-top:50px;
+
+}
+ 
+h1  { 
+  margin: 25px 0; 
+  font: 50px Georgia, Serif; 
+  text-transform: uppercase; 
+  letter-spacing: 3px; 
+  
+ }
+
+#results {
+  font: 44px Georgia, Serif;
+}
+
+ .sidenav {
+  margin-top: 40px;
+  display:flex;
+  width: 200px; 
+  height:100%;
+  position: fixed;
+  z-index: 1; 
+  top: -10px;  
+  left: 5%;
+  
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+ 
+}
+
+.tilpasser {
+  width: 120px;
+  padding:10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  border:2px solid black;
+  color: #DAA520;
+}
+.tilpasser1 {
+  width: 150px;
+  padding:10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  border:2px solid black;
+  background-color: #762300;
+  color: #DAA520;
+}
+.tilpasser:hover {
+	background-color:#762300;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display: block;
+}
+.sidenav:hover {
+opacity:1;
+	
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: red;
+}

@@ -1,0 +1,67 @@
+body {
+	background-image: url("hallween.png");
+	
+
+  background-size: cover;
+}
+ 
+ 
+ .sidenav {
+  
+  width: 140px; /* Set the width of the sidebar */
+  height:100%;
+  position: fixed;
+  z-index: 1; /* Stay on top */
+  top: -10px; /* Stay at the top */
+  left: 5%;
+  
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+  background-color: white;
+  opacity:0.3;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: black;
+  display: block;
+}
+.sidenav:hover {
+opacity:1;
+	
+}
+
+
+#test1 {
+	width:600px;
+	margin-top:100px;
+	margin-bottom:10px;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:rgba(169,169,169,0.5);
+	text-align:center;
+}
+
+.radio {
+	width:90px;
+	text-align:left;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+
+h3 {
+	text-align:center;
+	
+}
+
+
+.navn {
+	width:150px;
+	text-align:center;
+	background-color:darkorange;
+	
+}
