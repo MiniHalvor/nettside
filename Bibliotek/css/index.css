@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 h1 {
   font-size: 40px;
 }
@@ -27,3 +28,34 @@ h1 {
   width: 20%;
   margin: auto;
 }
+=======
+h1 {
+  font-size: 40px;
+}
+
+#master {
+  position: absolute;
+  background-color: blue;
+  height: 100%;
+  width: 100%;
+  margin: -8px;
+}
+
+#header {
+  position: relative;
+  background-color: red;
+  margin: auto;
+  width: 80%;
+  text-align: center;
+}
+
+#søkefelt {
+  position: relative;
+  text-align: center;
+  background-color: red;
+  border: 3px solid black;
+  border-radius: 25px;
+  width: 20%;
+  margin: auto;
+}
+>>>>>>> d9ba3aadaaf991b0c72e1e1ac95349903dcc8103
