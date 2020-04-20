@@ -166,3 +166,66 @@ a {
   padding: 5px;
   font-size: 30px;
 }
+
+#footer {
+  background-color: black;
+  height: 40vh;
+  margin-top: 30px;
+}
+#footer h1 {
+  color: white;
+}
+#footer-container {
+  width: 80%;
+  height: 60%;
+  margin: auto;
+}
+.footer-flex {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.tittel {
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 3px;
+  text-decoration: underline;
+}
+.punkt {
+  font-weight: lighter;
+}
+
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 100px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3b5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55acee;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
