@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Hei!</title>
+    <title>Epsilon</title>
     <link rel="stylesheet" href="css/index.css" />
     <meta charset="UTF-8" />
     <!--<link rel="shortcut icon" href="logoer/favicon.ico" /> -->
@@ -9,19 +9,83 @@
 
   <body>
     <div id="master">
-      <div id="header">
-        <h1>Velkommen til Epsilon</h1>
-      </div>
-      <div id="søkefelt">
-        <p>Søk etter bøker, sjangre, språk eller forfattere</p>
-      </div>
-      <div id="nav-bar"></div>
+      <header class="header">
+        <h1 class="logo"><a href="#">Epsilon</a></h1>
+        <ul class="main-nav">
+          <li><a href="#">Ny til Epsilon?</a></li>
+          <li><a href="#">Våre bøker</a></li>
+          <li><a href="#">Spørsmål og svar</a></li>
+          <li><a href="#">Min side</a></li>
+          <li><a href="#">Bruker123</a></li>
+        </ul>
+      </header>
       <div id="content">
-        <div id="row-1"></div>
-        <div id="row-2">
-          <div class="Bok"></div>
+        <div id="tittel"><h1>Velkommen til Epsilon</h1></div>
+
+        <div id="søkefelt">
+          <form action="result.php" method="POST">
+            <input
+              type="text"
+              id="fornavn"
+              placeholder="Søk etter bøker, sjangre, språk eller forfattere"
+              name="Søk"
+              required
+            />
+
+            <button type="submit">Søk</button>
+          </form>
         </div>
-        <div id="row-3"></div>
+        <div class="row-container">
+          <hr class="linje" />
+          <p>Våre anbefalinger</p>
+          <div class="row">
+            <div class="Bok"><a href="#">bok1</a></div>
+            <div class="Bok"><a href="#">bok2</a></div>
+            <div class="Bok"><a href="#">bok3</a></div>
+            <div class="Bok"><a href="#">bok4</a></div>
+          </div>
+        </div>
+
+        <div class="row-container">
+          <hr class="linje" />
+          <p>Populære bøker</p>
+          <div class="row">
+            <div class="Bok"><a href="#">bok1</a></div>
+            <div class="Bok"><a href="#">bok2</a></div>
+            <div class="Bok"><a href="#">bok3</a></div>
+            <div class="Bok"><a href="#">bok4</a></div>
+          </div>
+        </div>
+        <div class="row-container">
+          <hr class="linje" />
+          <p>Dette skjer på biblioteker rundt om i landet</p>
+          <div class="row">
+            <div class="nyhet">
+              <a
+                href="https://www.ostlendingen.no/fylkesbiblioteket-gar-digitalt-stengte-bibliotek-er-et-demokratisk-problem/s/5-69-920391"
+                >Digitalt bibliotek</a
+              >
+            </div>
+            <div class="nyhet">
+              <a
+                href="https://www.ostlendingen.no/fylkesbiblioteket-gar-digitalt-stengte-bibliotek-er-et-demokratisk-problem/s/5-69-920391"
+                >Digitalt bibliotek</a
+              >
+            </div>
+            <div class="nyhet">
+              <a
+                href="https://www.ostlendingen.no/fylkesbiblioteket-gar-digitalt-stengte-bibliotek-er-et-demokratisk-problem/s/5-69-920391"
+                >Digitalt bibliotek</a
+              >
+            </div>
+            <div class="nyhet">
+              <a
+                href="https://www.ostlendingen.no/fylkesbiblioteket-gar-digitalt-stengte-bibliotek-er-et-demokratisk-problem/s/5-69-920391"
+                >Digitalt bibliotek</a
+              >
+            </div>
+          </div>
+        </div>
       </div>
       <div id="footer"></div>
     </div>
