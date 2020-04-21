@@ -1,6 +1,11 @@
 * {
   box-sizing: border-box;
 }
+
+html {
+  position: relative;
+  min-height: 100%;
+}
 body {
   font-family: "Montserrat", sans-serif;
   line-height: 1.6;
@@ -18,6 +23,7 @@ ul {
   margin: 0;
   padding: 0;
   list-style: none;
+  margin-right: 15px;
 }
 
 h2,
@@ -87,7 +93,8 @@ a {
   height: 7vh;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 3%;
+  margin-top: 10%;
+  margin-bottom: 5%;
 }
 
 #søkefelt input {
@@ -137,8 +144,10 @@ a {
 }
 .row {
   display: flex;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 2%;
+  margin-bottom: 5%;
   text-align: center;
   position: relative;
   height: 150px;
@@ -158,7 +167,9 @@ a {
 }
 
 .nyhet {
-  margin: 5px;
+  margin-right: 5px;
+  margin-left: 5px;
+  margin-bottom: 5%;
   height: cover;
   display: flex;
   border: 1px solid black;
@@ -170,14 +181,17 @@ a {
 #footer {
   background-color: black;
   height: 40vh;
-  margin-top: 30px;
+  position: absolute;
+
+  width: 100vw;
+  overflow: hidden;
 }
 #footer h1 {
   color: white;
 }
 #footer-container {
   width: 80%;
-  height: 60%;
+  height: cover;
   margin: auto;
 }
 .footer-flex {
@@ -228,4 +242,12 @@ a {
 .fa-instagram {
   background: #125688;
   color: white;
+}
+
+/* Nå begynner css'en for introduksjonsguiden*/
+
+#guide {
+  width: 70%;
+  margin: auto;
+  padding: 10px;
 }
