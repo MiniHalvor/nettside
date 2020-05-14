@@ -183,7 +183,7 @@ session_start(); ?>
            biblioteker laget et desentralisert bibliotek hvor man kan bestille og låne
            bøker fra hele landets biblioteker og plukke dem opp hos hvilket som helst 
            av bibliotekene vi samarbeider med. Du kan se en oversikt over bibliotekene
-           vi samarbeider med <mark><a href="#">her</a></mark>. 
+           vi samarbeider med <mark><a href="samarbeid.php">her</a></mark>. 
           </p>
           <p>
             Alt du trenger å gjøre for å starte er å lage deg en bruker hos oss. Du 
@@ -201,9 +201,10 @@ session_start(); ?>
             Etter at du har fått melding om at boka er kommet frem til hentepunktet kan du møte
             opp og få utdelt boka/bøkene du har bestilt. Det tas selvfølgelig hensyn til smittevernstiltakene 
             som forlkehelseinstituttet anbefaler. De kan du lese mer om <mark><a href="https://www.fhi.no/nettpub/coronavirus/">her</a></mark>.
+            Etter FHI sin vurdering av risiko for smitte gjennom bøker så velger vi å ikke sette bøker i karantene.
             Når boka er ferdig lest eller når du føler deg ferdig med den kan du levere den samme sted. Vennligst merk 
             at dersom du leverer boka etter fristen så er du nødt til å betale et gebyr. Størrelsen på gebyret varierer etter
-            hvor sent ute du er, og hvor populær boka er.
+            hvor sent ute du er, og hvilken bok det er snakk om.
       
           </p>
           <p>

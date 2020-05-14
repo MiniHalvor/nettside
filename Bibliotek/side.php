@@ -236,7 +236,7 @@ session_start(); ?>
       
 
 
-      echo "<div id=\"tittel\"><h1>Endre passord</h1></div>";
+      echo "<div id=\"tittel\"><h1>Endre passord</h1></div><br><br>";
 
       echo "<form action=\"passord_connection.php\" method=\"POST\">";
       echo "<label for=\"psw\"><b>Nytt passord</b></label>\n";
@@ -270,7 +270,7 @@ session_start(); ?>
       echo "            </button>";
       echo "</form>";
 echo "<br><br><br>";
-      echo "<div id=\"tittel\"><h1>Slett bruker</h1></div>";
+      echo "<div id=\"tittel\"><h1>Slett bruker</h1></div><br><br>";
 
       echo "<form  id=\"slett\" onclick = \"getConfirmation();\"  method=\"POST\">\n";
       echo "<button  type=\"submit\" class=\"registerbtnn\">Slett bruker</button>\n";

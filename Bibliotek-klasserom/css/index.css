@@ -88,14 +88,20 @@ a {
   position: fixed;
   z-index: 2;
 }
-.headersøk {
-  margin-left: 0px !important;
+@media only screen and (min-device-width: 1000px) and (max-device-width: 1500px) {
+  .header {
+    height: 10vh;
+  }
+
+  #bok {
+    height: 50%;
+  }
+}
+#bok {
+  margin-left: -10%;
   height: 30px;
   width: 60px;
-}
-.headersøk input {
   height: 60%;
-
   width: 15vw !important;
   border-radius: 5%;
   position: absolute;
@@ -123,6 +129,12 @@ a {
   position: absolute;
 }
 
+@media only screen and (min-device-width: 1000px) and (max-device-width: 1500px) {
+  #tittelf {
+    height: 20vh;
+  }
+}
+
 #tittelf h1 {
   margin: auto;
   padding: 12px;
@@ -145,6 +157,11 @@ a {
   background-color: grey;
   height: 140vh;
   z-index: 0;
+}
+@media only screen and (min-device-width: 1000px) and (max-device-width: 1500px) {
+  #forside {
+    height: 180vh;
+  }
 }
 
 #forside img {
@@ -197,6 +214,12 @@ a {
   margin-bottom: 30px;
   box-shadow: 5px 5px 50px grey;
   border-radius: 10px;
+}
+#content p {
+  margin-top: 30px;
+}
+#content a {
+  margin-top: 30px;
 }
 
 .row-container {
@@ -259,6 +282,13 @@ a {
   overflow: hidden;
   font-family: "Montserrat", sans-serif;
 }
+
+@media only screen and (min-device-width: 1000px) and (max-device-width: 1500px) {
+  #footer {
+    height: 65vh;
+  }
+}
+
 #footer h1 {
   color: white;
   text-transform: uppercase;
@@ -409,7 +439,11 @@ span.psw {
   border: 1px solid #888;
   width: 40%; /* Could be more or less, depending on screen size */
 }
-
+@media only screen and (min-device-width: 1000px) and (max-device-width: 1500px) {
+  .modal-content {
+    margin: -3% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  }
+}
 /* The Close Button (x) */
 .close {
   position: absolute;
@@ -496,9 +530,15 @@ span.psw {
 
 table {
   margin: 0px auto;
+  margin-top: 20px;
   float: none;
   width: 50%;
   border-collapse: collapse;
+}
+@media only screen and (min-device-width: 1000px) and (max-device-width: 1500px) {
+  table {
+    margin-top: 40px;
+  }
 }
 
 table,
@@ -552,4 +592,14 @@ tr:hover {
   top: 0;
   left: 0;
   z-index: 1;
+}
+
+.samarbeid {
+  text-align: center;
+  font-size: 30px;
+}
+
+.kontakt {
+  width: 60%;
+  margin: auto;
 }

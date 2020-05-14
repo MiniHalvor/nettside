@@ -170,95 +170,12 @@ session_start(); ?>
           
       </header>
       <div id="content">
-        <div id="tittel"><h1>Brukeroversikt</h1></div>
-        <?php
-        include 'db_connection.php';
-
-        $conn = OpenCon();
-
-        if (isset($_SESSION["admin"]) && $_SESSION["admin"] === "1") {
-          echo '<div id="søkefelt"> <form action="brukeroversikt.php" method="POST">   <input  type="text"  id="brukere" placeholder="Søk etter brukere"  name="Søk" required  /> <button type="submit">Søk</button></form></div>';
-          $navn = $_POST['Søk'];
-          $sql = "SELECT * FROM bruker, poststed WHERE admin=0 AND bruker.postnr=poststed.postnr AND (fnavn like '%$navn%' OR enavn like '%$navn%')";
-          $result = $conn->query($sql);
-
-          if ($result->num_rows > 0) {
-            // output data of each row
-
-            echo "<table>";
-            echo "<tr><th>" .
-              "Navn" .
-              "</th><th>" .
-              "Telefon" .
-              "</th><th>" .
-              "Postnr" .
-              "</th><th>" .
-              "Poststed" .
-              "</th><th>" .
-              "Medlem siden" .
-              "</th><th>" .
-              
-              "Nyhetsbrev" .
-              "</th><th>" .
-              "Passiv" .
-              "</th><th>" .
-              "Deaktiver" .
-              "</th></tr>";
-
-            while ($row = $result->fetch_assoc()) {
-              echo "<tr><td>" .
-                $row['fnavn'] .
-                " " .
-                $row['enavn'] .
-                "</td><td>" .
-                $row['telefon'] .
-                "</td><td>" .
-                $row['postnr'] .
-                "</td><td>" .
-                $row['poststed'] .
-                "</td><td>" .
-                $row['medlemSiden'] .
-                "</td><td>" ;
-                if ($row['nyhetsbrev']==1) {
-                  echo "Ja";
-                }else {
-                  echo "Nei";}
-                 
-                echo "</td><td>" ;
-
-              if ($row['passiv']==1) {
-                  echo "Ja";
-                }else {
-                  echo "Nei";}
-                echo "</td><td>" ;
-                if ($row['passiv']==0) {
-               
-
-              echo  "<form action= \"deaktiver.php \" method=\"post\">
-                <input type=\"hidden\" name=\"brukerid\" value=".$row['brukerid'].">
-                <input type=\"hidden\" name=\"passiv\" value=1>
-                <button type= \"submit\" >Deaktiver </button></form>" .
-                "</td></tr>";
-
-              } else {
-                echo "<form action= \"deaktiver.php \" method=\"post\">
-                <input type=\"hidden\" name=\"brukerid\" value=".$row['brukerid'].">
-                <input type=\"hidden\" name=\"passiv\" value=0>
-                <button type= \"submit\" >Aktiver </button></form>" .
-                "</td></tr>";
-              }
-                "</td></tr>";
-            }
-            echo "</table>";
-          } else {
-            echo "0 results";
-          }
-        } else {
-          echo "<center><p>Vennligst logg inn som administrator for å se dette innholdet<p></center>";
-        }
-
-        CloseCon($conn);
-        ?>
+        <div id="tittel"><h1>Kontakt oss</h1></div>
+      <div class="kontakt">
+       <p>
+       Dersom du har spørsmål om siden anbefaler vi at du sender inn de <mark><a href=spørsmål.php>her</a></mark>. Gjelder henvendelsen en av våre samarbeidspartnere anbefaler vi at du tar kontakt med den respektive samarbeidspartneren. Hvis du direkte henvendelser til oss kan du ta kontakt med oss via E-mail ved å sende en E-post til Epsilonbib@gmail.com. Ønsker du å ta kontakt med skaperen bak siden så kan han nås på epostaddressen halvor.taraldsen@gmail.com.
+       </p>
+         </div>
          
       </div>
       <div id="footer">

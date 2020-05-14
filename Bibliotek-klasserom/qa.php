@@ -169,6 +169,7 @@ session_start(); ?>
           
       </header>
       <div id="content">
+        
         <div id="tittel"><h1>Spørsmål og svar</h1></div>
         <?php
         include 'db_connection.php';
@@ -176,7 +177,7 @@ session_start(); ?>
         $conn = OpenCon();
 
         if (isset($_SESSION["admin"]) && $_SESSION["admin"] === "0") {
-          echo "<center><a href=\"spørsmål.php\">Still et spørsmål!</a></center>";
+          echo "<center><a  href=\"spørsmål.php\">Still et spørsmål!</a></center>";
         }
 
         $sql =

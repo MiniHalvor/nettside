@@ -212,6 +212,23 @@ session_start(); ?>
            }
            echo "  </datalist>";
 
+            echo "<br><br><label for=\"Bibliotek\">Velg et bibliotek:</label><br><br>\n";
+           echo "  <select id=\"Bibliotek\" name=\"Bibliotek\">\n";
+
+          
+             echo "<option value='Oslo/Deichman bibliotek'>Oslo/Deichman bibliotek</option>";
+             echo "<option value='Bergen bibliotek'>Bergen bibliotek</option>";
+             echo "<option value='Stavanger/Sølvberget bibliotek'>Stavanger/Sølvberget bibliotek</option>";
+             echo "<option value='Trondheim bibliotek'>Trondheim bibliotek</option>";
+             echo "<option value='Fredrikstad bibliotek'>Fredrikstad bibliotek</option>";
+             echo "<option value='Drammen bibliotekk'>Drammen bibliotek</option>";
+             echo "<option value='Skien bibliotek'>Skien bibliotek</option>";
+             echo "<option value='Kristiansand bibliotek'>Kristiansand bibliotek</option>";
+             echo "<option value='Ålesund bibliotek'>Ålesund bibliotek</option>";
+             echo "<option value='Tønsberg/færder bibliotek'>Tønsberg/færder bibliotek</option>";
+
+           echo "  </select>";
+
            echo "                <button onclick=\"doValidate();\" type=\"submit\" class=\"registerbtn\">Lån</button>\n";
 
            echo "              </div> \n";

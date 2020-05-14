@@ -170,7 +170,7 @@ session_start(); ?>
           
       </header>
       <div id="content">
-        <div id="tittel"><h1>Administrer</h1></div>
+        <div id="tittel"><h1>Brukeroversikt</h1></div>
         <?php
         include 'db_connection.php';
 
@@ -197,11 +197,12 @@ session_start(); ?>
               "</th><th>" .
               "Medlem siden" .
               "</th><th>" .
-              "Passordendring" .
-              "</th><th>" .
+              
               "Nyhetsbrev" .
               "</th><th>" .
               "Passiv" .
+              "</th><th>" .
+              "Deaktiver" .
               "</th></tr>";
 
             while ($row = $result->fetch_assoc()) {
@@ -217,12 +218,35 @@ session_start(); ?>
                 $row['poststed'] .
                 "</td><td>" .
                 $row['medlemSiden'] .
-                "</td><td>" .
-                $row['passordendring'] .
-                "</td><td>" .
-                $row['nyhetsbrev'] .
-                "</td><td>" .
-                $row['passiv'] .
+                "</td><td>" ;
+                if ($row['nyhetsbrev']==1) {
+                  echo "Ja";
+                }else {
+                  echo "Nei";}
+                 
+                echo "</td><td>" ;
+
+              if ($row['passiv']==1) {
+                  echo "Ja";
+                }else {
+                  echo "Nei";}
+                echo "</td><td>" ;
+                if ($row['passiv']==0) {
+               
+
+              echo  "<form action= \"deaktiver.php \" method=\"post\">
+                <input type=\"hidden\" name=\"brukerid\" value=".$row['brukerid'].">
+                <input type=\"hidden\" name=\"passiv\" value=1>
+                <button type= \"submit\" >Deaktiver </button></form>" .
+                "</td></tr>";
+
+              } else {
+                echo "<form action= \"deaktiver.php \" method=\"post\">
+                <input type=\"hidden\" name=\"brukerid\" value=".$row['brukerid'].">
+                <input type=\"hidden\" name=\"passiv\" value=0>
+                <button type= \"submit\" >Aktiver </button></form>" .
+                "</td></tr>";
+              }
                 "</td></tr>";
             }
             echo "</table>";

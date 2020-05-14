@@ -188,8 +188,7 @@ session_start(); ?>
 
             echo "<table >";
             echo "<tr><th>" .
-             "Brukerid" .
-              "</th><th>" .
+            
               "Navn" .
               "</th><th>" .
               "Telefon" .
@@ -213,8 +212,7 @@ session_start(); ?>
                
               
               echo "<tr><td>" .
-              $row['brukerid'] .
-                "</td><td>" .
+              
                 $row['fnavn'] .
                 " " .
                 $row['enavn'] .
@@ -226,14 +224,19 @@ session_start(); ?>
                 $row['poststed'] .
                 "</td><td>" .
                 $row['medlemSiden'] .
-                "</td><td>" .
-                
-                $row['nyhetsbrev'] .
-                "</td><td>" .
-
-
-                $row['passiv'] .
                 "</td><td>" ;
+                if ($row['nyhetsbrev']==1) {
+                  echo "Ja";
+                }else {
+                  echo "Nei";}
+                 
+                echo "</td><td>" ;
+
+              if ($row['passiv']==1) {
+                  echo "Ja";
+                }else {
+                  echo "Nei";}
+                echo "</td><td>" ;
                 if ($row['passiv']==0) {
                
 

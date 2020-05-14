@@ -175,7 +175,7 @@ session_start(); ?>
 
         $conn = OpenCon();
 
-        $tittel_tittelid = mysqli_real_escape_string($conn, $_POST['eksemplar']);
+        $tittel_tittelid = mysqli_real_escape_string($conn, $_POST['tittel']);
         $språk = mysqli_real_escape_string($conn, $_POST['språk']);
         $format = mysqli_real_escape_string($conn, $_POST['format']);
         $sidetall = mysqli_real_escape_string($conn, $_POST['sidetall']);

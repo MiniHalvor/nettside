@@ -10,7 +10,6 @@ session_start(); ?>
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    
     <meta charset="UTF-8" />
     <!--<link rel="shortcut icon" href="logoer/favicon.ico" /> -->
   </head>
@@ -170,96 +169,21 @@ session_start(); ?>
           
       </header>
       <div id="content">
-        <div id="tittel"><h1>Brukeroversikt</h1></div>
-        <?php
-        include 'db_connection.php';
-
-        $conn = OpenCon();
-
-        if (isset($_SESSION["admin"]) && $_SESSION["admin"] === "1") {
-          echo '<div id="søkefelt"> <form action="brukeroversikt.php" method="POST">   <input  type="text"  id="brukere" placeholder="Søk etter brukere"  name="Søk" required  /> <button type="submit">Søk</button></form></div>';
-          $navn = $_POST['Søk'];
-          $sql = "SELECT * FROM bruker, poststed WHERE admin=0 AND bruker.postnr=poststed.postnr AND (fnavn like '%$navn%' OR enavn like '%$navn%')";
-          $result = $conn->query($sql);
-
-          if ($result->num_rows > 0) {
-            // output data of each row
-
-            echo "<table>";
-            echo "<tr><th>" .
-              "Navn" .
-              "</th><th>" .
-              "Telefon" .
-              "</th><th>" .
-              "Postnr" .
-              "</th><th>" .
-              "Poststed" .
-              "</th><th>" .
-              "Medlem siden" .
-              "</th><th>" .
-              
-              "Nyhetsbrev" .
-              "</th><th>" .
-              "Passiv" .
-              "</th><th>" .
-              "Deaktiver" .
-              "</th></tr>";
-
-            while ($row = $result->fetch_assoc()) {
-              echo "<tr><td>" .
-                $row['fnavn'] .
-                " " .
-                $row['enavn'] .
-                "</td><td>" .
-                $row['telefon'] .
-                "</td><td>" .
-                $row['postnr'] .
-                "</td><td>" .
-                $row['poststed'] .
-                "</td><td>" .
-                $row['medlemSiden'] .
-                "</td><td>" ;
-                if ($row['nyhetsbrev']==1) {
-                  echo "Ja";
-                }else {
-                  echo "Nei";}
-                 
-                echo "</td><td>" ;
-
-              if ($row['passiv']==1) {
-                  echo "Ja";
-                }else {
-                  echo "Nei";}
-                echo "</td><td>" ;
-                if ($row['passiv']==0) {
-               
-
-              echo  "<form action= \"deaktiver.php \" method=\"post\">
-                <input type=\"hidden\" name=\"brukerid\" value=".$row['brukerid'].">
-                <input type=\"hidden\" name=\"passiv\" value=1>
-                <button type= \"submit\" >Deaktiver </button></form>" .
-                "</td></tr>";
-
-              } else {
-                echo "<form action= \"deaktiver.php \" method=\"post\">
-                <input type=\"hidden\" name=\"brukerid\" value=".$row['brukerid'].">
-                <input type=\"hidden\" name=\"passiv\" value=0>
-                <button type= \"submit\" >Aktiver </button></form>" .
-                "</td></tr>";
-              }
-                "</td></tr>";
-            }
-            echo "</table>";
-          } else {
-            echo "0 results";
-          }
-        } else {
-          echo "<center><p>Vennligst logg inn som administrator for å se dette innholdet<p></center>";
-        }
-
-        CloseCon($conn);
-        ?>
-         
+        <div id="tittel"><h1>Samarbeid</h1></div>
+        <div class="samarbeid">
+        <ul>
+            <li><h3><a href="https://deichman.no/">Oslo/Deichman bibliotek</a></h3></li>
+            <li><h3><a href="https://bergenbibliotek.no/">Bergen bibliotek</a></h3></li>
+            <li><h3><a href="https://www.xn--slvberget-l8a.no/">Stavanger/Sølvberget bibliotek</a></h3></li>
+            <li><h3><a href="https://biblioteket.trondheim.kommune.no/">Trondheim bibliotek</a></h3></li>
+            <li><h3><a href="https://www.fredrikstadbibliotek.no/">Fredrikstad bibliotek</a></h3></li>
+            <li><h3><a href="https://www.drammensbiblioteket.no/web/arena">Drammen bibliotek</a></h3></li>
+            <li><h3><a href="https://skienbibliotek.no/">Skien bibliotek</a></h3></li>
+            <li><h3><a href="https://krsbib.no/">Kristiansand bibliotek</a></h3></li>
+            <li><h3><a href="http://www.alesund.folkebibl.no/">Ålesund bibliotek</a></h3></li>
+            <li><h3><a href="https://tonsberg-og-faerder.vestfoldbibliotekene.no/">Tønsberg/færder bibliotek</a></h3></li>
+        </ul>
+    </div>
       </div>
       <div id="footer">
         <div id="footer-container">
@@ -298,3 +222,4 @@ session_start(); ?>
     </div>
   </body>
 </html>
+

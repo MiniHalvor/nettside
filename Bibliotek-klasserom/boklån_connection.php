@@ -185,9 +185,10 @@ session_start(); ?>
          // echo "<br>$datolånt";
          $datofrist = date("Y-m-d", strtotime("+1 month"));
          // echo "<br>$datofrist";
+         $bibliotek=mysqli_real_escape_string($conn, $_POST['Bibliotek']);
 
-         $sql = "INSERT INTO `aktivbok` (`låneid`, `datolånt`, `datofrist`, `bruker_brukerid`, `bok_bokid`)
-          VALUES (NULL, '$datolånt', '$datofrist', '$brukerid', '$bokid')";
+         $sql = "INSERT INTO `aktivbok` (`låneid`, `datolånt`, `datofrist`, `bruker_brukerid`, `bok_bokid`,`Bibliotek` )
+          VALUES (NULL, '$datolånt', '$datofrist', '$brukerid', '$bokid', '$bibliotek')";
 
          if ($conn->query($sql) === true) {
            echo '<center><div class="registrert">';

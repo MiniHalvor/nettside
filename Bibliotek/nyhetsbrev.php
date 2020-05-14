@@ -10,14 +10,13 @@ session_start(); ?>
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    
     <meta charset="UTF-8" />
     <!--<link rel="shortcut icon" href="logoer/favicon.ico" /> -->
   </head>
 
   <body>
     <div id="master">
-      <header class="header">
+     <header class="header">
         <h1 class="logo"><a href="index.php">Epsilon</a></h1>
           <div class="headersøk">
           <form action="bokresultat.php" method="POST">
@@ -170,98 +169,23 @@ session_start(); ?>
           
       </header>
       <div id="content">
-        <div id="tittel"><h1>Brukeroversikt</h1></div>
-        <?php
-        include 'db_connection.php';
+        <div id="tittel"><h1>Meld deg på vårt nyhetsbrev</h1></div>
+         <?php if (isset($_SESSION["admin"]) && $_SESSION["admin"] === "0") {
+             echo "<p style=\padding: 20px;\" >Her kan du melde deg på vårt nyhetsbrev. Vi kan sende deg opptil to eposter per uke. Dersom du ønsker å melde deg av vårt nyhetsbrev kan du gjøre det fra linken som dukker opp nederst på nyhetsbrevet.</p>";
+           echo "<form action=\"nyhetsbrev_connection.php\" method=\"POST\">\n";
+           echo "              <div class=\"container\">\n";
+           echo "                <hr />\n";
+ 
+           echo "                <input type=\"hidden\" name=\"nyhetsbrev\" value=1 required />\n";
 
-        $conn = OpenCon();
-
-        if (isset($_SESSION["admin"]) && $_SESSION["admin"] === "1") {
-          echo '<div id="søkefelt"> <form action="brukeroversikt.php" method="POST">   <input  type="text"  id="brukere" placeholder="Søk etter brukere"  name="Søk" required  /> <button type="submit">Søk</button></form></div>';
-          $navn = $_POST['Søk'];
-          $sql = "SELECT * FROM bruker, poststed WHERE admin=0 AND bruker.postnr=poststed.postnr AND (fnavn like '%$navn%' OR enavn like '%$navn%')";
-          $result = $conn->query($sql);
-
-          if ($result->num_rows > 0) {
-            // output data of each row
-
-            echo "<table>";
-            echo "<tr><th>" .
-              "Navn" .
-              "</th><th>" .
-              "Telefon" .
-              "</th><th>" .
-              "Postnr" .
-              "</th><th>" .
-              "Poststed" .
-              "</th><th>" .
-              "Medlem siden" .
-              "</th><th>" .
-              
-              "Nyhetsbrev" .
-              "</th><th>" .
-              "Passiv" .
-              "</th><th>" .
-              "Deaktiver" .
-              "</th></tr>";
-
-            while ($row = $result->fetch_assoc()) {
-              echo "<tr><td>" .
-                $row['fnavn'] .
-                " " .
-                $row['enavn'] .
-                "</td><td>" .
-                $row['telefon'] .
-                "</td><td>" .
-                $row['postnr'] .
-                "</td><td>" .
-                $row['poststed'] .
-                "</td><td>" .
-                $row['medlemSiden'] .
-                "</td><td>" ;
-                if ($row['nyhetsbrev']==1) {
-                  echo "Ja";
-                }else {
-                  echo "Nei";}
-                 
-                echo "</td><td>" ;
-
-              if ($row['passiv']==1) {
-                  echo "Ja";
-                }else {
-                  echo "Nei";}
-                echo "</td><td>" ;
-                if ($row['passiv']==0) {
-               
-
-              echo  "<form action= \"deaktiver.php \" method=\"post\">
-                <input type=\"hidden\" name=\"brukerid\" value=".$row['brukerid'].">
-                <input type=\"hidden\" name=\"passiv\" value=1>
-                <button type= \"submit\" >Deaktiver </button></form>" .
-                "</td></tr>";
-
-              } else {
-                echo "<form action= \"deaktiver.php \" method=\"post\">
-                <input type=\"hidden\" name=\"brukerid\" value=".$row['brukerid'].">
-                <input type=\"hidden\" name=\"passiv\" value=0>
-                <button type= \"submit\" >Aktiver </button></form>" .
-                "</td></tr>";
-              }
-                "</td></tr>";
-            }
-            echo "</table>";
-          } else {
-            echo "0 results";
-          }
-        } else {
-          echo "<center><p>Vennligst logg inn som administrator for å se dette innholdet<p></center>";
-        }
-
-        CloseCon($conn);
-        ?>
-         
+           echo "                <button style=\"height: 350px;\" type=\"submit\" class=\"registerbtn\">Jeg er med!</button>\n";
+           echo "              </div> \n";
+           echo "            </form>";
+         } else {
+           echo "<center><p>Vennligst logg inn for å se dette innholdet</p></center>";
+         } ?>
       </div>
-      <div id="footer">
+     <div id="footer">
         <div id="footer-container">
           <h1>Epsilon</h1>
           <hr />
