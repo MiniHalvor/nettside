@@ -107,6 +107,8 @@ a {
   height: 10vh;
   width: 90%;
   text-align: center;
+}
+#tittel h1 {
   border-bottom: 3px solid black;
 }
 
