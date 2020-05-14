@@ -184,6 +184,20 @@ session_start(); ?>
         $epost = mysqli_real_escape_string($conn, $_POST['epost']);
         $psw = mysqli_real_escape_string($conn, $_POST['psw']);
         date_default_timezone_set("cet");
+         require 'phplogin.php';
+
+           
+             // Assigning POST values to variables.
+            
+
+             // CHECK FOR THE RECORD FROM TABLE
+             $query = "SELECT Count(telefon) FROM `bruker` WHERE telefon='$telefon' and passord='$psw' and passiv=0";
+
+             ($result = mysqli_query($connection, $query)) or
+               die(mysqli_error($connection));
+              while ($row = $result->fetch_assoc()) {
+              $count = $row['Count(telefon)'];
+}
         $medlemSiden = date("Y-m-d");
         $passordendring = date("Y-m-d");
         $antallbok = "0";
@@ -193,19 +207,21 @@ session_start(); ?>
 
         $sql = "INSERT INTO `bruker` (`brukerid`, `fnavn`, `enavn`, `telefon`, `postnr`, `medlemSiden`, `antallbok`, `gatenavn`, `gatenummer`, `passord`, `passordendring`, `epost`, `nyhetsbrev`, `admin`, `passiv`) 
           VALUES (NULL, '$fnavn', '$enavn', '$telefon', '$postnr', '$medlemSiden', '0', '$gatenavn', '$gatenummer', '$psw', '$passordendring', '$epost', '0', '0', '0');";
-
+      
         if ($conn->query($sql) === true) {
           echo '<center><div class="registrert">';
-          echo stripslashes("Gratulerer, " .
+          if ($count == 1) {echo stripslashes("Gratulerer, " .
             $fnavn .
             " " .
             $enavn .
             " har blitt registrert i vår database.");
+          } else {
+            echo "<div class=\"kontakt\">Det finnnes allerede en bruker som benytter seg av dette telefonnummeret. Vennligst benytt deg av et annet telefonnummer når du registrerer deg eller ta kontakt med oss på Epsilonbib@gmail.com dersom du mener at det er din bruker det er snakk om.</div>";}
           echo '</div></center>';
         } else {
           echo "Error: " . $sql . "<br>" . $conn->error;
         }
-
+      
         CloseCon($conn);
         ?>
       </div>

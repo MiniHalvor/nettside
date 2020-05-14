@@ -58,7 +58,7 @@ session_start(); ?>
                $_SESSION["brukerid"] = $brukerid;
                $passiv=$row['passiv'];
                $_SESSION["passiv"] = $passiv;
-             }
+             } else {echo "<script type='text/javascript'>alert('Innlogging mislyktes');</script>";}
            }
            
 

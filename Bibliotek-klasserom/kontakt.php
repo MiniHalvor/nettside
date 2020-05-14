@@ -170,13 +170,12 @@ session_start(); ?>
           
       </header>
       <div id="content">
-        <div id="tittel"><h1>Kontakt oss</h1></div>
+      <div id="tittel"><h1>Kontakt oss</h1></div>
       <div class="kontakt">
        <p>
        Dersom du har spørsmål om siden anbefaler vi at du sender inn de <mark><a href=spørsmål.php>her</a></mark>. Gjelder henvendelsen en av våre samarbeidspartnere anbefaler vi at du tar kontakt med den respektive samarbeidspartneren. Hvis du direkte henvendelser til oss kan du ta kontakt med oss via E-mail ved å sende en E-post til Epsilonbib@gmail.com. Ønsker du å ta kontakt med skaperen bak siden så kan han nås på epostaddressen halvor.taraldsen@gmail.com.
        </p>
          </div>
-         
       </div>
       <div id="footer">
         <div id="footer-container">
