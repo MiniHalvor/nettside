@@ -3,8 +3,8 @@ include 'db_connection.php';
 
 $conn = OpenCon();
 
-$spørsmålid = $_POST['spørsmål'];
-$svar = $_POST['svar'];
+$spørsmålid = mysqli_real_escape_string($conn, $_POST['spørsmål']);
+$svar = mysqli_real_escape_string($conn, $_POST['svar']);
 $brukerid = $_SESSION["brukerid"];
 $date = date("Y-m-d");
 

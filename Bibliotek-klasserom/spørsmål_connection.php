@@ -7,7 +7,7 @@ session_start(); ?>
 
         $conn = OpenCon();
 
-        $spørsmål = $_POST['spørsmål'];
+        $spørsmål = mysqli_real_escape_string($conn, $_POST['spørsmål']);
         $brukerid = $_SESSION["brukerid"];
         $date = date("Y-m-d");
 

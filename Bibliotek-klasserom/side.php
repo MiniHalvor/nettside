@@ -19,6 +19,20 @@ session_start(); ?>
     <div id="master">
       <header class="header">
         <h1 class="logo"><a href="index.php">Epsilon</a></h1>
+          <div class="headersøk">
+          <form action="bokresultat.php" method="POST">
+            <input
+              type="text"
+              id="bok"
+              placeholder="Søk etter bøker"
+              name="Søk"
+              required
+            />
+            
+
+            
+          </form>
+</div>
         <ul class="main-nav">
            <?php
            require 'phplogin.php';
@@ -29,7 +43,7 @@ session_start(); ?>
              $password = $_POST['psw'];
 
              // CHECK FOR THE RECORD FROM TABLE
-             $sql = "SELECT * FROM `bruker` WHERE telefon='$username' and passord='$password'";
+             $sql = "SELECT * FROM `bruker` WHERE telefon='$username' and passord='$password' and passiv=0";
 
              ($result = mysqli_query($connection, $sql)) or
                die(mysqli_error($connection));
@@ -43,8 +57,11 @@ session_start(); ?>
                $_SESSION["admin"] = $admin;
                $brukerid = $row['brukerid'];
                $_SESSION["brukerid"] = $brukerid;
+               $passiv=$row['passiv'];
+               $_SESSION["passiv"] = $passiv;
              }
            }
+           
 
            if (isset($_SESSION["admin"]) && $_SESSION["admin"] === "1") {
              echo '<li><a href="reghub.php">Registreringshub</a></li>';
@@ -59,10 +76,11 @@ session_start(); ?>
            }
 
            if (isset($_SESSION["admin"]) && $_SESSION["admin"] === "0") {
-             echo '<li><a href="boklån.php">Lån bok</a></li>';
+             
+             echo '<li><a href="boklån.php">Bestill bok</a></li>';
              echo '<li><a href="side.php">Min side</a></li>';
            }
-           if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+           if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true and $_SESSION["passiv"]==0) {
              echo '<li><a href="logout.php">Logg ut</a></li>';
            } else {
              echo "<li>\n";
@@ -71,6 +89,14 @@ session_start(); ?>
              echo "              style=\"width: auto;\"\n";
              echo "            >\n";
              echo "              Logg inn\n";
+             echo "            </button>\n";
+             echo "          </li>";
+              echo "<li>\n";
+             echo "            <button\n";
+             echo "onclick=\"window.location.href='registrer.php'\"";
+             echo "              style=\"width: auto;\"\n";
+             echo "            >\n";
+             echo "              Registrer \n";
              echo "            </button>\n";
              echo "          </li>";
            }
@@ -151,15 +177,20 @@ session_start(); ?>
 
       $brukerid = $_SESSION["brukerid"];
       $sql = "SELECT brukerid, fnavn, enavn FROM bruker WHERE brukerid=$brukerid";
+      
       $result = $conn->query($sql);
       while ($row = $result->fetch_assoc()) {
         $navn = $row['fnavn'] . " " . $row['enavn'];
+    
       }
       echo "<div id=\"tittel\"><h1>Hei $navn</h1></div>";
-      // echo "<br>$brukerid";
+      
+         
+      echo "<center><p style: \"margin: 30px;\" ><b>Her er en oversikt over bøkene du ikke har levert enda. </b></p></center>";
+        
       $sql = "SELECT * FROM aktivbok, bok, tittel WHERE aktivbok.bok_bokid=bok.bokid AND bok.tittel_tittelid=tittel.tittelid and aktivbok.bruker_brukerid=$brukerid";
       $result = $conn->query($sql);
-      echo "<center><p style: \"margin: 30px;\" >Her er en oversikt over bøkene du ikke har levert enda</p></center>";
+      
       if ($result->num_rows > 0) {
         // output data of each row
 
@@ -195,42 +226,58 @@ session_start(); ?>
         }
         echo "</table>";
       } else {
+        
         echo "<div class=\"tekst\"><b > Du har ingen bøker å levere</b></div>";
+        
       }
-      echo "<div id=\"tittel\"><h1>Lever tilbake bok</h1></div>";
+      echo "<br><br><br>";
+  
 
-      echo "<form onsubmit=\"return doValidate();\"  action=\"side_connection.php\" method=\"POST\">\n";
-      echo "              <div class=\"container\">\n";
-      echo "                <hr />\n";
+      
 
-      echo "<label for=\"eksemplar\">Søk etter tittel, språk eller forlag:</label>\n";
-      echo "<input type=\"text\" name=\"eksemplar\" list=\"eksemplar\" id=\"txt\" >";
-      echo "  <datalist id=\"eksemplar\" name=\"eksemplar\" >\n";
-      $sql = "SELECT * FROM aktivbok, bok, tittel WHERE aktivbok.bok_bokid=bok.bokid AND bok.tittel_tittelid=tittel.tittelid and aktivbok.bruker_brukerid=$brukerid";
-      $result = $conn->query($sql);
-      while ($row = $result->fetch_assoc()) {
-        echo "<option value='" .
-          $row['bokid'] .
-          "'>" .
-          $row['tittel'] .
-          ", " .
-          $row['Forlag'] .
-          ", " .
-          $row['språk'] .
-          " " .
-          "</option>";
-      }
-      echo "  </datalist>";
 
-      echo "                <button onclick=\"doValidate();\" type=\"submit\" class=\"registerbtn\">Lever tilbake</button>\n";
+      echo "<div id=\"tittel\"><h1>Endre passord</h1></div>";
 
-      echo "              </div> \n";
-      echo "            </form>";
+      echo "<form action=\"passord_connection.php\" method=\"POST\">";
+      echo "<label for=\"psw\"><b>Nytt passord</b></label>\n";
+      echo "            <input\n";
+      echo "              type=\"password\"\n";
+      echo "              id=\"txtPassword\"\n";
+      echo "              placeholder=\"Passord\"\n";
+      echo "              name=\"psw\"\n";
+      echo "              required\n";
+      echo "            />\n";
 
+     echo "<input type=\"checkbox\" onclick=\"myFunction()\">Vis passord<br><br>";
+
+      echo "            <label for=\"psw-repeat\"><b>Gjenta passord</b></label>\n";
+      echo "            <input\n";
+      echo "              type=\"password\"\n";
+      echo "              placeholder=\"Gjenta passord\"\n";
+      echo "              name=\"psw-repeat\"\n";
+      echo "              id=\"txtConfirmPassword\"\n";
+      echo "              required\n";
+      echo "            />\n";
+     
+      echo "<input type=\"checkbox\" onclick=\"myFunction1()\">Vis passord";
+      
+      echo "            <button\n";
+      echo "              type=\"submit\"\n";
+      echo "              onclick=\"return Validate()\"\n";
+      echo "              class=\"registerbtn\"\n";
+      echo "            >\n";
+      echo "              Endre passord\n";
+      echo "            </button>";
+      echo "</form>";
+echo "<br><br><br>";
       echo "<div id=\"tittel\"><h1>Slett bruker</h1></div>";
 
       echo "<form  id=\"slett\" onclick = \"getConfirmation();\"  method=\"POST\">\n";
       echo "<button  type=\"submit\" class=\"registerbtnn\">Slett bruker</button>\n";
+      echo "<p style=\"padding: 10px;\" >Vennligst merk at vi lagrer din informasjon selv om du sletter brukeren din. 
+      Dersom du ønsker at vi sletter all informasjon om deg må du ta kontakt med en administrator.
+      Du kan også ta kontakt med en administrator dersom du ønsker å gjenopprette brukeren din.
+      Du er selvfølgelig pliktig til å levere bøkene du har lånt selv om du sletter brukeren din.<p>";
       echo "</form>";
       CloseCon($conn);
       ?>
@@ -268,43 +315,78 @@ session_start(); ?>
                   return false;
                }
             }
-         
+
+         function Validate() {
+            var password = document.getElementById("txtPassword").value;
+           
+            var confirmPassword = document.getElementById("txtConfirmPassword")
+            
+              .value;
+            if (password != confirmPassword ) {
+              alert("Vennligst gjenta riktig passord");
+              return false;
+            }
+           
+
+            return true;
+
+          }
+
+          function myFunction() {
+  var x = document.getElementById("txtPassword");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
+function myFunction1() {
+  var x = document.getElementById("txtConfirmPassword");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
       </script> 
       </div>
 
-      <div id="footer">
+     <div id="footer">
         <div id="footer-container">
           <h1>Epsilon</h1>
           <hr />
           <div class="footer-flex">
             <ul>
               <li class="tittel">Kontakt</li>
-              <li class="punkt">Kontakt oss</li>
-              <li class="punkt">Nyhetsbrev</li>
+              <li class="punkt"><a href="kontakt.php">Kontakt oss</a></li>
+              <li class="punkt"><a href="nyhetsbrev.php">Nyhetsbrev</a></li>
+             
             </ul>
-            <ul>
-              <li class="tittel">Ofte stilte spørsmål</li>
-              <li class="punkt">Spørsmål 1</li>
-              <li class="punkt">Spørsmål 2</li>
-              <li class="punkt">Spørsmål 3</li>
-              <li class="punkt">Spørsmål 4</li>
-              <li class="punkt">Spørsmål 5</li>
-            </ul>
+           
             <ul>
               <li class="tittel">Om Epsilon</li>
-              <li class="punkt">Introduksjonsguide</li>
-              <li class="punkt">Finansiering</li>
+              <li class="punkt"><a href="intro.php">Introduksjonsguide</a></li>
+              <li class="punkt"><a href="samarbeid.php">Våre samarbeidspartnere</a></li>
             </ul>
           </div>
           <hr />
           <div id="socials">
-            <a href="facebook.com" class="fa fa-facebook fa-3x"></a>
-            <a href="instagram.com" class="fa fa-instagram fa-3x"></a>
-            <a href="twitter.com" class="fa fa-twitter fa-3x"></a>
-            <a href="youtube.com" class="fa fa-youtube fa-3x"></a>
+            <a
+              href="https://www.facebook.com/Epsilon-101951431529081/"
+              class="fa fa-facebook fa-3x"
+            ></a>
+            <a
+              href="https://www.instagram.com/epsilonbibliotek/?hl=nb"
+              class="fa fa-instagram fa-3x"
+            ></a>
+            <a href="https://twitter.com/Epsilonbibliot1" class="fa fa-twitter fa-3x"></a>
+            <a href="https://www.youtube.com/channel/UC128cDVnzo-qTA0Sa6aKhxA" class="fa fa-youtube fa-3x"></a>
           </div>
         </div>
+        
       </div>
     </div>
   </body>
 </html>
+

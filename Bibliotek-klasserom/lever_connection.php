@@ -175,20 +175,17 @@ session_start(); ?>
 
         $conn = OpenCon();
 
-        $fnavn = mysqli_real_escape_string($conn, $_POST['fnavn']);
-        $enavn = mysqli_real_escape_string($conn, $_POST['enavn']);
+        $låneid = mysqli_real_escape_string($conn, $_POST['eksemplar']);
+        
+        
 
-        $sql = "INSERT INTO `forfatter` (`forfatterid`, `fnavn`, `enavn`) VALUES (NULL, '$fnavn', '$enavn')";
+        $sql = "DELETE FROM `aktivbok` WHERE `aktivbok`.`låneid` = $låneid";
 
         if ($conn->query($sql) === true) {
           echo '<center><div class="registrert">';
-          echo stripslashes( "<h2>Gratulerer, forfatteren " .
-            $fnavn .
-            " " .
-            $enavn .
-            " har blitt registrert i vår database.</h2>");
-          echo "<br><br><a href=\"regfor.php\">Registrer ny forfatter</a>";
-          echo "<br><br><a href=\"reghub.php\">Tilbake til registreringshuben</a>";
+          echo stripslashes("<h2>Gratulerer, låneid $låneid har blitt levert.</h2>");
+          echo "<br><br><a href=\"lever.php\">Lever flere bøker</a>";
+          
           echo '</div></center>';
         } else {
           echo "Error: " . $sql . "<br>" . $conn->error;

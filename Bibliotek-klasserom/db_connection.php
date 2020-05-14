@@ -6,18 +6,11 @@ function OpenCon()
   $sqlpass = "okf47";
   $sqldb = "knet-elev20821";
 
-  $conn = new mysqli($sqlserver, $sqluser, $sqlpass, $sqldb) or
+  ($conn = new mysqli($sqlserver, $sqluser, $sqlpass, $sqldb)) or
     die("Connect failed: %s\n" . $conn->error);
   $conn->set_charset("utf8");
   return $conn;
-
-
-
 }
-
-
-
-
 
 function CloseCon($conn)
 {

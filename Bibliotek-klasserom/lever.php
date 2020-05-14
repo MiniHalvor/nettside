@@ -169,35 +169,80 @@ session_start(); ?>
           
       </header>
       <div id="content">
-        <div id="tittel"><h1>Registrer forfatter</h1></div>
-        <?php
-        include 'db_connection.php';
+        <div id="tittel"><h1>Lever tilbake bøker</h1></div>
+         <?php if (isset($_SESSION["admin"]) && $_SESSION["admin"] === "1") {
+           echo "<form onsubmit=\"return doValidate();\" action=\"lever_connection.php\" method=\"POST\">\n";
+           echo "              <div class=\"container\">\n";
+           echo "                <hr />\n";
 
-        $conn = OpenCon();
+ echo "<label for=\"eksemplar\"><b>Søk etter tittel og velg en låneid:</b></label>\n";
+           echo "<input type=\"text\" name=\"eksemplar\" list=\"eksemplar\" id=\"txt\" >";
+           echo "  <datalist id=\"eksemplar\" name=\"eksemplar\" >\n";
 
-        $fnavn = mysqli_real_escape_string($conn, $_POST['fnavn']);
-        $enavn = mysqli_real_escape_string($conn, $_POST['enavn']);
+           include 'db_connection.php';
+           $conn = OpenCon();
+           $sql = "SELECT låneid, datolånt, datofrist, bruker_brukerid, bok_bokid, brukerid, fnavn, enavn, tittel_tittelid, tittel 
+           FROM aktivbok, bruker, bok, tittel 
+           where aktivbok.bruker_brukerid=bruker.brukerid 
+           AND aktivbok.bok_bokid=bok.bokid 
+           AND tittel.tittelid=bok.tittel_tittelid
+           ORDER BY datofrist ASC";
+           $result = $conn->query($sql);
 
-        $sql = "INSERT INTO `forfatter` (`forfatterid`, `fnavn`, `enavn`) VALUES (NULL, '$fnavn', '$enavn')";
+           while ($row = $result->fetch_assoc()) {
+             echo "<option value='" .
+               $row['låneid'] .
+               "'>" .
+               $row['tittel'] .
+                ", " .
+                $row['fnavn'] .
+                " " .
+                $row['enavn'] .
+                ", " .
+                 $row['datofrist'] .
+               "</option>";
+           }
+           echo "  </datalist>";
+           
 
-        if ($conn->query($sql) === true) {
-          echo '<center><div class="registrert">';
-          echo stripslashes( "<h2>Gratulerer, forfatteren " .
-            $fnavn .
-            " " .
-            $enavn .
-            " har blitt registrert i vår database.</h2>");
-          echo "<br><br><a href=\"regfor.php\">Registrer ny forfatter</a>";
-          echo "<br><br><a href=\"reghub.php\">Tilbake til registreringshuben</a>";
-          echo '</div></center>';
-        } else {
-          echo "Error: " . $sql . "<br>" . $conn->error;
-        }
+          
+           
+           
 
-        CloseCon($conn);
-        ?>
+           
+
+           echo "                <button onclick=\"doValidate();\" type=\"submit\" class=\"registerbtn\">Lever tilbake</button>\n";
+           echo "              </div> \n";
+           echo "            </form>";
+         } else {
+           echo "<center><p>Vennligst logg inn som administrator for å se dette innholdet</p></center>";
+         } ?>
+         <script type="text/javascript">
+        function is_valid_datalist_value(idDataList, inputValue) {
+            var option = document.querySelector("#" + idDataList + " option[value='" + inputValue + "']");
+
+            if (option != null) {
+                return option.value.length > 0;
+            }
+            return false;
+            
+            }
+
+            function doValidate() {
+            if (is_valid_datalist_value('eksemplar', document.getElementById('txt').value)) {
+                return true;
+                
+            } else {
+                alert("Vennligst velg en gyldig bokid");
+               
+                return false;
+            }
+            }
+
+          
+</script>
       </div>
-     <div id="footer">
+      <div id="footer">
         <div id="footer-container">
           <h1>Epsilon</h1>
           <hr />
