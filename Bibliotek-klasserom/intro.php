@@ -1,3 +1,6 @@
+<?php
+// Start the session
+session_start(); ?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -14,14 +17,128 @@
   <body>
     <div id="master">
       <header class="header">
-        <h1 class="logo"><a href="index.html">Epsilon</a></h1>
-        <ul class="main-nav">
-          <li><a href="intro.html">Ny til Epsilon?</a></li>
-          <li><a href="bøker.html">Våre bøker</a></li>
-          <li><a href="qa.html">Spørsmål og svar</a></li>
-          <li><a href="side.html">Min side</a></li>
-          <li><a href="#">Bruker123</a></li>
+        <h1 class="logo"><a href="index.php">Epsilon</a></h1>
+       <ul class="main-nav">
+           <?php
+           require 'phplogin.php';
+
+           if (isset($_POST['tlf']) and isset($_POST['psw'])) {
+             // Assigning POST values to variables.
+             $username = $_POST['tlf'];
+             $password = $_POST['psw'];
+
+             // CHECK FOR THE RECORD FROM TABLE
+             $sql = "SELECT * FROM `bruker` WHERE telefon='$username' and passord='$password'";
+
+             ($result = mysqli_query($connection, $sql)) or
+               die(mysqli_error($connection));
+
+             $count = mysqli_num_rows($result);
+             if ($count == 1) {
+               $_SESSION["loggedin"] = true;
+               $_SESSION["username"] = $username;
+               $row = mysqli_fetch_array($result);
+               $admin = $row['admin'];
+               $_SESSION["admin"] = $admin;
+             }
+           }
+
+           if (isset($_SESSION["admin"]) && $_SESSION["admin"] === "1") {
+             echo '<li><a href="reghub.php">Registreringshub</a></li>';
+             echo '<li><a href="administrer.php">Brukeroversikt</a></li>';
+             echo '<li><a href="svar.php">Svar på spørsmål</a></li>';
+           } else {
+             echo '<li>';
+             echo '<a href="intro.php">Ny til Epsilon?</a>';
+             echo '</li>';
+             echo '<li><a href="bøker.php">Våre bøker</a></li>';
+             echo '<li><a href="qa.php">Spørsmål og svar</a></li>';
+           }
+
+           if (isset($_SESSION["admin"]) && $_SESSION["admin"] === "0") {
+             echo '<li><a href="boklån.php">Lån bok</a></li>';
+             echo '<li><a href="side.php">Min side</a></li>';
+           }
+           if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+             echo '<li><a href="logout.php">Logg ut</a></li>';
+           } else {
+             echo "<li>\n";
+             echo "            <button\n";
+             echo "              onclick=\"document.getElementById('id01').style.display='block'\"\n";
+             echo "              style=\"width: auto;\"\n";
+             echo "            >\n";
+             echo "              Logg inn\n";
+             echo "            </button>\n";
+             echo "          </li>";
+           }
+           ?>
+         
         </ul>
+            <div id="id01" class="modal">
+              <form
+                class="modal-content animate"
+                action="index.php"
+                method="post"
+              >
+                <div class="imgcontainer">
+                  <span
+                    onclick="document.getElementById('id01').style.display='none'"
+                    class="close"
+                    title="Close Modal"
+                    >&times;</span
+                  >
+                  <img src="bilder/img_avatar2.png" alt="Avatar" class="avatar" />
+                </div>
+
+                <div class="container">
+                  <label for="tlf"><b>Telefonnummer</b></label>
+                  <input
+                    type="text"
+                    placeholder="Skriv inn telefonnummeret ditt"
+                    name="tlf"
+                    required
+                  />
+
+                  <label for="psw"><b>Passord</b></label>
+                  <input
+                    type="password"
+                    placeholder="Skriv inn passordet ditt"
+                    name="psw"
+                    required
+                  />
+
+                  <button type="submit">Logg inn</button>
+                  <label>
+                    <input type="checkbox" checked="checked" name="remember" />
+                    Husk meg
+                  </label>
+                </div>
+
+                <div class="container" style="background-color: #f1f1f1;">
+                  <button
+                    type="button"
+                    onclick="document.getElementById('id01').style.display='none'"
+                    class="cancelbtn"
+                  >
+                    Avbryt
+                  </button>
+                  <span class="psw"><a href="registrer.php">Registrer deg</a></span>
+                </div>
+              </form>
+            </div>
+
+            <script>
+              // Get the modal
+              var modal = document.getElementById("id01");
+
+              // When the user clicks anywhere outside of the modal, close it
+              window.onclick = function (event) {
+                if (event.target == modal) {
+                  modal.style.display = "none";
+                }
+              };
+            </script>
+          
       </header>
       <div id="content">
         <div id="tittel"><h1>Introduksjonsguide</h1></div>

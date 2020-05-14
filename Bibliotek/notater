@@ -1,0 +1,12 @@
+SELECT * FROM sjanger, bok, forfatter, forfatter_has_tittel, tittel WHERE bok.tittel_tittelid=tittel.tittelid AND forfatter.forfatterid=forfatter_has_tittel.forfatter_forfatterid AND tittel.tittelid=forfatter_has_tittel.tittel_tittelid AND tittel.sjanger_sjangerid=sjanger.sjangerid ORDER BY `bok`.`bokid` ASC
+
+
+SQL spørring for bøker som ikke er lånt ut
+
+SELECT * FROM sjanger, bok, forfatter, forfatter_has_tittel, tittel 
+WHERE bok.tittel_tittelid=tittel.tittelid 
+AND forfatter.forfatterid=forfatter_has_tittel.forfatter_forfatterid 
+AND tittel.tittelid=forfatter_has_tittel.tittel_tittelid AND tittel.sjanger_sjangerid=sjanger.sjangerid 
+AND bokid NOT IN (Select bok_bokid from aktivbok) 
+GROUP BY tittel
+

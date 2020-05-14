@@ -72,7 +72,6 @@ a {
 .header {
   display: flex;
   height: 8vh;
-  width: 100vw;
   padding-top: 0.5em;
   padding-bottom: 0.5em;
   border: 1px solid #a2a2a2;
@@ -85,20 +84,6 @@ a {
   border-radius: 5px;
   flex-direction: row;
   justify-content: space-between;
-  position: fixed;
-  z-index: 2;
-}
-.headersøk {
-  margin-left: 0px !important;
-  height: 30px;
-  width: 60px;
-}
-.headersøk input {
-  height: 60%;
-
-  width: 15vw !important;
-  border-radius: 5%;
-  position: absolute;
 }
 
 #tittel {
@@ -109,49 +94,6 @@ a {
   text-align: center;
   border-bottom: 3px solid black;
 }
-
-#tittelf {
-  height: 14vh;
-  align-content: center;
-  text-align: center;
-  width: 61.8vw;
-  background-color: rgba(41, 44, 77, 0.678);
-  margin: auto;
-  margin-top: 61.8vh;
-  position: absolute;
-}
-
-#tittelf h1 {
-  margin: auto;
-  padding: 12px;
-  font-family: "Montserrat", sans-serif;
-  font-size: 40px;
-  font-weight: normal;
-  line-height: 48px;
-}
-#tittelf p {
-  margin: auto;
-  color: #d6cdcd;
-  font-family: "Montserrat", sans-serif;
-  font-size: 20px;
-  font-weight: normal;
-  line-height: 48px;
-}
-#forside {
-  position: relative;
-  width: 100vw;
-  background-color: grey;
-  height: 140vh;
-  z-index: 0;
-}
-
-#forside img {
-  position: absolute;
-  z-index: -1;
-  margin-top: 0vh;
-  height: auto;
-}
-
 #søkefelt {
   position: relative;
   width: 35vw;
@@ -191,7 +133,7 @@ a {
   height: auto;
   width: 60%;
   margin: auto;
-  margin-top: 90px;
+  margin-top: 30px;
   margin-bottom: 30px;
   box-shadow: 5px 5px 50px grey;
   border-radius: 10px;
@@ -225,7 +167,6 @@ a {
   flex-direction: row;
   justify-content: space-between;
 }
-
 .Bok {
   margin: 5px;
   height: 75px;
@@ -251,16 +192,13 @@ a {
 #footer {
   background-color: black;
   height: 45vh;
-  position: relative;
-  bottom: 0;
+  position: absolute;
+
   width: 100vw;
   overflow: hidden;
-  font-family: "Montserrat", sans-serif;
 }
 #footer h1 {
   color: white;
-  text-transform: uppercase;
-  font-size: 1.45em;
 }
 #footer-container {
   width: 80%;
@@ -272,22 +210,17 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 61.8%;
-  margin: auto;
 }
 .tittel {
   font-weight: bold;
   font-size: 20px;
   letter-spacing: 3px;
   text-decoration: underline;
-  margin-top: 50px;
 }
 .punkt {
   font-weight: lighter;
 }
-.punkt:nth-last-child(1) {
-  margin-bottom: 40px;
-}
+
 .fa {
   padding: 20px;
   font-size: 30px;
