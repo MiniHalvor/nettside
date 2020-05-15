@@ -3,7 +3,7 @@ include 'db_connection.php';
 
 $conn = OpenCon();
 
-$bokid = $_POST['eksemplar'];
+$bokid = strip_tags(mysqli_real_escape_string($conn, $_POST['eksemplar']));
 
 $sql = "DELETE FROM `aktivbok` WHERE `aktivbok`.`bok_bokid` = $bokid";
 if ($conn->query($sql) === true) {

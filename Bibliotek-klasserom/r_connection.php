@@ -175,14 +175,14 @@ session_start(); ?>
 
         $conn = OpenCon();
 
-        $fnavn = mysqli_real_escape_string($conn, $_POST['fnavn']);
-        $enavn = mysqli_real_escape_string($conn, $_POST['enavn']);
-        $telefon = mysqli_real_escape_string($conn, $_POST['telefon']);
-        $postnr = mysqli_real_escape_string($conn, $_POST['postnr']);
-        $gatenavn = mysqli_real_escape_string($conn, $_POST['gatenavn']);
-        $gatenummer = mysqli_real_escape_string($conn, $_POST['gatenummer']);
-        $epost = mysqli_real_escape_string($conn, $_POST['epost']);
-        $psw = mysqli_real_escape_string($conn, $_POST['psw']);
+        $fnavn = strip_tags(mysqli_real_escape_string($conn, $_POST['fnavn']));
+        $enavn = strip_tags(mysqli_real_escape_string($conn, $_POST['enavn']));
+        $telefon = strip_tags(mysqli_real_escape_string($conn, $_POST['telefon']));
+        $postnr = strip_tags(mysqli_real_escape_string($conn, $_POST['postnr']));
+        $gatenavn = strip_tags(mysqli_real_escape_string($conn, $_POST['gatenavn']));
+        $gatenummer = strip_tags(mysqli_real_escape_string($conn, $_POST['gatenummer']));
+        $epost = strip_tags(mysqli_real_escape_string($conn, $_POST['epost']));
+        $psw = strip_tags(mysqli_real_escape_string($conn, $_POST['psw']));
         date_default_timezone_set("cet");
          require 'phplogin.php';
 

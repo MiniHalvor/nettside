@@ -175,11 +175,11 @@ session_start(); ?>
 
         $conn = OpenCon();
 
-        $tittel_tittelid = mysqli_real_escape_string($conn, $_POST['tittel']);
-        $språk = mysqli_real_escape_string($conn, $_POST['språk']);
-        $format = mysqli_real_escape_string($conn, $_POST['format']);
-        $sidetall = mysqli_real_escape_string($conn, $_POST['sidetall']);
-        $antall = mysqli_real_escape_string($conn, $_POST['antall']);
+        $tittel_tittelid = strip_tags(mysqli_real_escape_string($conn, $_POST['tittel']));
+        $språk = strip_tags(mysqli_real_escape_string($conn, $_POST['språk']));
+        $format = strip_tags(mysqli_real_escape_string($conn, $_POST['format']));
+        $sidetall = strip_tags(mysqli_real_escape_string($conn, $_POST['sidetall']));
+        $antall = strip_tags(mysqli_real_escape_string($conn, $_POST['antall']));
 
         if ($antall == 5) {
           $sql = "INSERT INTO `bok` (`bokid`, `tittel_tittelid`, `språk`, `Format`, `Sidetall`) 

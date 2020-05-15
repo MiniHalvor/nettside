@@ -175,7 +175,7 @@ session_start(); ?>
 
         $conn = OpenCon();
 
-        $sjanger = mysqli_real_escape_string($conn, $_POST['sjanger']);
+        $sjanger = strip_tags(mysqli_real_escape_string($conn, $_POST['sjanger']));
         
         $sql = "INSERT INTO `sjanger` (`sjangerid`, `sjangernavn`) VALUES (NULL, '$sjanger')";
 

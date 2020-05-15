@@ -175,7 +175,7 @@ session_start(); ?>
 
         $conn = OpenCon();
 
-        $låneid = mysqli_real_escape_string($conn, $_POST['eksemplar']);
+        $låneid = strip_tags(mysqli_real_escape_string($conn, $_POST['eksemplar']));
         
         
 

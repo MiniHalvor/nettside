@@ -175,8 +175,8 @@ session_start(); ?>
 
         $conn = OpenCon();
 
-        $fnavn = mysqli_real_escape_string($conn, $_POST['fnavn']);
-        $enavn = mysqli_real_escape_string($conn, $_POST['enavn']);
+        $fnavn = strip_tags(mysqli_real_escape_string($conn, $_POST['fnavn']));
+        $enavn = strip_tags(mysqli_real_escape_string($conn, $_POST['enavn']));
 
         $sql = "INSERT INTO `forfatter` (`forfatterid`, `fnavn`, `enavn`) VALUES (NULL, '$fnavn', '$enavn')";
 

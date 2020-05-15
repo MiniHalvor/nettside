@@ -175,7 +175,7 @@ session_start(); ?>
 
          $conn = OpenCon();
 
-         $bokid = mysqli_real_escape_string($conn, $_POST['eksemplar']);
+         $bokid = strip_tags(mysqli_real_escape_string($conn, $_POST['eksemplar']));
          //echo "$bokid";
 
          $brukerid = $_SESSION["brukerid"];
@@ -185,7 +185,7 @@ session_start(); ?>
          // echo "<br>$datolånt";
          $datofrist = date("Y-m-d", strtotime("+1 month"));
          // echo "<br>$datofrist";
-         $bibliotek=mysqli_real_escape_string($conn, $_POST['Bibliotek']);
+         $bibliotek=strip_tags(mysqli_real_escape_string($conn, $_POST['Bibliotek']));
 
          $sql = "INSERT INTO `aktivbok` (`låneid`, `datolånt`, `datofrist`, `bruker_brukerid`, `bok_bokid`,`Bibliotek` )
           VALUES (NULL, '$datolånt', '$datofrist', '$brukerid', '$bokid', '$bibliotek')";

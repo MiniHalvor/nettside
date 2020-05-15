@@ -37,11 +37,11 @@ session_start(); ?>
            require 'phplogin.php';
 
            if (isset($_POST['tlf']) and isset($_POST['psw'])) {
-             // Assigning POST values to variables.
+             
              $username = $_POST['tlf'];
              $password = $_POST['psw'];
 
-             // CHECK FOR THE RECORD FROM TABLE
+            
              $sql = "SELECT * FROM `bruker` WHERE telefon='$username' and passord='$password' and passiv=0";
 
              ($result = mysqli_query($connection, $sql)) or
@@ -157,10 +157,10 @@ session_start(); ?>
             </div>
 
             <script>
-              // Get the modal
+              
               var modal = document.getElementById("id01");
 
-              // When the user clicks anywhere outside of the modal, close it
+              
               window.onclick = function (event) {
                 if (event.target == modal) {
                   modal.style.display = "none";

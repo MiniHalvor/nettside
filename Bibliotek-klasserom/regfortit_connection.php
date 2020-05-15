@@ -175,17 +175,17 @@ session_start(); ?>
 
          $conn = OpenCon();
 
-         $tittel = mysqli_real_escape_string($conn, $_POST['tittel']);
-         $forfatter = mysqli_real_escape_string($conn, $_POST['forfatter']);
+         $tittel = strip_tags(mysqli_real_escape_string($conn, $_POST['tittel']));
+         $forfatter = strip_tags(mysqli_real_escape_string($conn, $_POST['forfatter']));
          $sql = "select fnavn, enavn, forfatterid from forfatter where forfatterid='$forfatter'";
          $result2 = $conn->query($sql);
          while ($row = $result2->fetch_assoc()) {
-           $forfatternavn = mysqli_real_escape_string($conn, $row['fnavn']) . " " . mysqli_real_escape_string($conn, $row['enavn']);
+           $forfatternavn = strip_tags(mysqli_real_escape_string($conn, $row['fnavn'])) . " " . strip_tags(mysqli_real_escape_string($conn, $row['enavn']));
          }
          $sql = "select tittel, tittelid from tittel where tittelid='$tittel'";
          $result3 = $conn->query($sql);
          while ($row = $result3->fetch_assoc()) {
-           $tittelnavn = mysqli_real_escape_string($conn, $row['tittel']);
+           $tittelnavn = strip_tags(mysqli_real_escape_string($conn, $row['tittel']));
          }
 
          $sql = "INSERT INTO `forfatter_has_tittel` (`forfatter_forfatterid`, `tittel_tittelid`) 

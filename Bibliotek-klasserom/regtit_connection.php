@@ -175,11 +175,11 @@ session_start(); ?>
 
         $conn = OpenCon();
 
-        $tittel = mysqli_real_escape_string($conn, $_POST['tittel']);
-        $sjanger = mysqli_real_escape_string($conn, $_POST['sjanger']);
-        $utgivelsesår = mysqli_real_escape_string($conn, $_POST['utgivelsesår']);
-        $forlag = mysqli_real_escape_string($conn, $_POST['Forlag']);
-        $originaltittel = mysqli_real_escape_string($conn, $_POST['Originaltittel']);
+        $tittel = strip_tags(mysqli_real_escape_string($conn, $_POST['tittel']));
+        $sjanger = strip_tags(mysqli_real_escape_string($conn, $_POST['sjanger']));
+        $utgivelsesår = strip_tags(mysqli_real_escape_string($conn, $_POST['utgivelsesår']));
+        $forlag = strip_tags(mysqli_real_escape_string($conn, $_POST['Forlag']));
+        $originaltittel = strip_tags(mysqli_real_escape_string($conn, $_POST['Originaltittel']));
 
              
 
