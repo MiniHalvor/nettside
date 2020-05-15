@@ -34,7 +34,7 @@ session_start(); ?>
 </div>
         <ul class="main-nav">
            <?php
-           require 'phplogin.php';
+           /*require 'phplogin.php';
 
            if (isset($_POST['tlf']) and isset($_POST['psw'])) {
              // Assigning POST values to variables.
@@ -98,7 +98,7 @@ session_start(); ?>
              echo "              Registrer \n";
              echo "            </button>\n";
              echo "          </li>";
-           }
+           }*/
            ?>
          
         </ul>

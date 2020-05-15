@@ -176,7 +176,9 @@ session_start(); ?>
            echo "                <hr />\n";
 
  echo "<label for=\"eksemplar\"><b>Søk etter tittel og velg en tittelid:</b></label>\n";
+
            echo "<input type=\"text\" name=\"eksemplar\" list=\"eksemplar\" id=\"txt\" >";
+           
            echo "  <datalist id=\"eksemplar\" name=\"eksemplar\" >\n";
 
            include 'db_connection.php';

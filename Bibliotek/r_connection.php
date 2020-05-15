@@ -186,12 +186,12 @@ session_start(); ?>
         date_default_timezone_set("cet");
          require 'phplogin.php';
 
-           
+        
              // Assigning POST values to variables.
             
 
              // CHECK FOR THE RECORD FROM TABLE
-             $query = "SELECT Count(telefon) FROM `bruker` WHERE telefon='$telefon' and passord='$psw' and passiv=0";
+             $query = "SELECT Count(telefon) FROM `bruker` WHERE telefon='$telefon'  and passiv=0";
 
              ($result = mysqli_query($connection, $query)) or
                die(mysqli_error($connection));
@@ -204,24 +204,24 @@ session_start(); ?>
         $admin = "0";
         $nyhetsbrev = "0";
         $passiv = "0";
-
+ if ($count == 0) {
         $sql = "INSERT INTO `bruker` (`brukerid`, `fnavn`, `enavn`, `telefon`, `postnr`, `medlemSiden`, `antallbok`, `gatenavn`, `gatenummer`, `passord`, `passordendring`, `epost`, `nyhetsbrev`, `admin`, `passiv`) 
           VALUES (NULL, '$fnavn', '$enavn', '$telefon', '$postnr', '$medlemSiden', '0', '$gatenavn', '$gatenummer', '$psw', '$passordendring', '$epost', '0', '0', '0');";
-      
+      echo $count;
         if ($conn->query($sql) === true) {
           echo '<center><div class="registrert">';
-          if ($count == 1) {echo stripslashes("Gratulerer, " .
+         echo stripslashes("Gratulerer, " .
             $fnavn .
             " " .
             $enavn .
             " har blitt registrert i vår database.");
-          } else {
-            echo "<div class=\"kontakt\">Det finnnes allerede en bruker som benytter seg av dette telefonnummeret. Vennligst benytt deg av et annet telefonnummer når du registrerer deg eller ta kontakt med oss på Epsilonbib@gmail.com dersom du mener at det er din bruker det er snakk om.</div>";}
+          
           echo '</div></center>';
         } else {
           echo "Error: " . $sql . "<br>" . $conn->error;
-        }
-      
+        }} else {
+            echo "<div class=\"kontakt\">Det finnnes allerede en bruker som benytter seg av dette telefonnummeret. Vennligst benytt deg av et annet telefonnummer når du registrerer deg eller ta kontakt med oss på Epsilonbib@gmail.com dersom du mener at det er din bruker det er snakk om.</div>";}
+        
         CloseCon($conn);
         ?>
       </div>

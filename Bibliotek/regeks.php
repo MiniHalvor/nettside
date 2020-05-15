@@ -1,4 +1,5 @@
-<?php
+
+  <?php
 // Start the session
 session_start(); ?>
 <!DOCTYPE html>
@@ -11,7 +12,7 @@ session_start(); ?>
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <meta charset="UTF-8" />
-    <!--<link rel="shortcut icon" href="logoer/favicon.ico" /> -->
+    
   </head>
 
   <body>
@@ -174,40 +175,27 @@ session_start(); ?>
            echo "<form onsubmit=\"return doValidate();\" action=\"regeks_connection.php\" method=\"POST\">\n";
            echo "              <div class=\"container\">\n";
            echo "                <hr />\n";
-
  echo "<label for=\"eksemplar\"><b>Søk etter tittel og velg en tittelid:</b></label>\n";
            echo "<input type=\"text\" name=\"eksemplar\" list=\"eksemplar\" id=\"txt\" >";
            echo "  <datalist id=\"eksemplar\" name=\"eksemplar\" >\n";
-
            include 'db_connection.php';
            $conn = OpenCon();
            $sql = "select * from tittel";
            $result = $conn->query($sql);
-
            while ($row = $result->fetch_assoc()) {
              echo "<option value='" .
                $row['tittelid'] .
                "'>" .
                $row['tittel'] .
-           
                "</option>";
            }
            echo "  </datalist>";
-           
-
-          
-           
-           
-
            echo "               <br><br> <label for=\"språk\"><b>språk</b></label>\n";
            echo "                <input type=\"text\" placeholder=\"språk\" name=\"språk\" required />\n";
-
            echo "                <label for=\"format\"><b>Format</b></label>\n";
            echo "                <input type=\"text\" placeholder=\"Format\" name=\"format\" required />\n";
-
            echo "                <label for=\"Sidetall\"><b>Sidetall</b></label>\n";
            echo "                <input type=\"text\" placeholder=\"Sidetall\" name=\"sidetall\" required />\n";
-
            echo "<p><b>Antall eksemplarer</b></p> ";
            echo "<input type=\"radio\" id=\"5\" name=\"antall\" value=\"5\">\n";
            echo "  <label for=\"5\">5</label><br>\n";
@@ -217,14 +205,14 @@ session_start(); ?>
            echo "  <label for=\"20\">20</label>";
            echo "  <br><input type=\"radio\" id=\"50\" name=\"antall\" value=\"50\">\n";
            echo "  <label for=\"50\">50</label>";
-
            echo "                <button onclick=\"doValidate();\" type=\"submit\" class=\"registerbtn\">Registrer</button>\n";
            echo "              </div> \n";
            echo "            </form>";
          } else {
            echo "<center><p>Vennligst logg inn som administrator for å se dette innholdet</p></center>";
-         } ?>
-         <script type="text/javascript">
+         } 
+         ?>
+          <script type="text/javascript">
         function is_valid_datalist_value(idDataList, inputValue) {
             var option = document.querySelector("#" + idDataList + " option[value='" + inputValue + "']");
 
@@ -285,4 +273,4 @@ session_start(); ?>
       </div>
     </div>
   </body>
-</html>
+</html> 
