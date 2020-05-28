@@ -207,7 +207,7 @@ session_start(); ?>
  if ($count == 0) {
         $sql = "INSERT INTO `bruker` (`brukerid`, `fnavn`, `enavn`, `telefon`, `postnr`, `medlemSiden`, `antallbok`, `gatenavn`, `gatenummer`, `passord`, `passordendring`, `epost`, `nyhetsbrev`, `admin`, `passiv`) 
           VALUES (NULL, '$fnavn', '$enavn', '$telefon', '$postnr', '$medlemSiden', '0', '$gatenavn', '$gatenummer', '$psw', '$passordendring', '$epost', '0', '0', '0');";
-      echo $count;
+    
         if ($conn->query($sql) === true) {
           echo '<center><div class="registrert">';
          echo stripslashes("Gratulerer, " .
